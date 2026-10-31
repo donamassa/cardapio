@@ -334,23 +334,31 @@
       box-shadow: 0 4px 0 #111C0C, 0 6px 14px rgba(31, 49, 23, 0.28);
     }
 
-    .home-secondary-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    .home-social-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       width: 100%;
+      margin-top: 4px;
     }
 
-    .home-action-btn.secondary-warm {
-      background: linear-gradient(180deg, #FFFDF9 0%, #EFE0C6 100%);
-      color: var(--burgundy);
-      border: 2px solid var(--burgundy);
-      box-shadow: 0 3px 0 var(--burgundy), 0 5px 10px rgba(0, 0, 0, 0.08);
-      font-size: 0.88rem;
-      padding: 13px 12px;
-      justify-content: center;
-      text-align: center;
-      gap: 6px;
+    .icon-inline {
+      width: 1.15em;
+      height: 1.15em;
+      display: inline-block;
+      vertical-align: -0.2em;
+      flex-shrink: 0;
+    }
+
+    .icon-inline.lg {
+      width: 1.35em;
+      height: 1.35em;
+    }
+
+    .whats-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     /* =====================================================
@@ -651,26 +659,36 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      padding: 10px 0;
+      padding: 7px 0;
       border-bottom: 1px dashed var(--border-vintage);
     }
 
+    .summary-item.compact {
+      padding: 6px 2px;
+      gap: 8px;
+    }
+
     .summary-item-info strong {
-      font-size: 1.04rem;
+      font-size: 0.95rem;
       color: var(--text-main);
       display: block;
+      line-height: 1.25;
+      font-weight: 700;
     }
 
     .summary-item-info span {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
+      font-weight: 600;
     }
 
     .summary-item-price {
       font-family: 'EB Garamond', serif;
-      font-size: 1.15rem;
+      font-size: 1.08rem;
       font-weight: 800;
       color: var(--burgundy);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .form-group {
@@ -733,11 +751,35 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       box-shadow: 0 4px 0 #0F5E26, 0 6px 14px rgba(21, 133, 55, 0.3);
     }
 
     .whats-send-large-btn:active {
       transform: translateY(2px);
+    }
+
+    .whats-send-secondary-btn {
+      width: 100%;
+      background: transparent;
+      color: var(--whats-green-dark);
+      border: 1.5px dashed var(--whats-green);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0.92;
+    }
+
+    .whats-send-secondary-btn:active {
+      transform: translateY(1px);
+      opacity: 1;
     }
 
     .insta-card-link {
@@ -749,10 +791,16 @@
       border: 1.5px solid var(--border-vintage);
       padding: 12px;
       border-radius: 10px;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       color: var(--burgundy);
       text-decoration: none;
+    }
+
+    .insta-card-link svg {
+      width: 1.25em;
+      height: 1.25em;
+      flex-shrink: 0;
     }
 
     .plaque-footer {
@@ -871,9 +919,9 @@
 
     .footer-menu-btn {
       font-family: 'Cinzel', serif;
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      padding: 12px 14px;
+      padding: 11px 12px;
       border-radius: 10px;
       border: 2px solid var(--burgundy);
       background-color: var(--parchment-card);
@@ -881,39 +929,68 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       box-shadow: 0 3px 0 rgba(114, 22, 15, 0.25);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .footer-nav-btn {
+    .footer-cat-btn {
+      flex: 1;
       font-family: 'Cinzel', serif;
-      font-size: 0.86rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      padding: 12px 14px;
+      padding: 11px 10px;
       border-radius: 10px;
-      border: 2px solid var(--border-vintage);
-      background-color: var(--parchment-card);
-      color: var(--text-main);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      box-shadow: 0 3px 0 rgba(90, 70, 60, 0.2);
+      gap: 4px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      transition: transform 0.12s ease;
     }
 
-    .footer-nav-btn.next-primary {
-      flex: 1;
+    .footer-cat-btn:active {
+      transform: translateY(2px);
+    }
+
+    .footer-cat-btn.salgadas {
       background: linear-gradient(180deg, var(--burgundy-light) 0%, var(--burgundy) 100%);
       color: #FFF9EE;
-      border-color: var(--gold);
+      border: 2px solid var(--gold);
       box-shadow: 0 3px 0 var(--burgundy-dark);
     }
 
-    .footer-nav-btn:disabled {
-      opacity: 0.35;
-      pointer-events: none;
+    .footer-cat-btn.doces {
+      background: linear-gradient(180deg, var(--olive-light) 0%, var(--olive) 100%);
+      color: #FFF9EE;
+      border: 2px solid var(--gold);
+      box-shadow: 0 3px 0 #111C0C;
+    }
+
+    .footer-cat-btn.active-screen {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 1px;
+    }
+
+    .drawer-nav-item.social-whats {
+      border-color: var(--whats-green);
+      color: var(--whats-green-dark);
+      background: linear-gradient(180deg, #F0FDF4 0%, #ECFDF5 100%);
+    }
+
+    .drawer-nav-item.social-insta {
+      border-color: #C13584;
+      color: #833AB4;
+      background: linear-gradient(180deg, #FFF7FB 0%, #FDF2F8 100%);
+    }
+
+    .drawer-nav-item .nav-label-with-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
     /* =====================================================
@@ -1067,21 +1144,25 @@
 
           <div class="home-actions-grid">
             <button type="button" class="home-action-btn primary-burgundy" onclick="goToScreen(1)">
-              <span>🍕 Pizzas Salgadas &amp; Especial</span>
+              <span>🍕 Salgadas</span>
               <span>→</span>
             </button>
             <button type="button" class="home-action-btn primary-olive" onclick="goToScreen(2)">
-              <span>🍫 Pizzas Doces</span>
+              <span>🍫 Doces</span>
               <span>→</span>
             </button>
-            <div class="home-secondary-row">
-              <button type="button" class="home-action-btn secondary-warm" onclick="goToScreen(3)">
-                🔥 Como Assar
-              </button>
-              <button type="button" class="home-action-btn secondary-warm" onclick="goToScreen(4)">
-                📲 Contato / Pedido
-              </button>
+          </div>
+
+          <div class="home-social-stack">
+            <div class="plaque-footer">
+              <h4>♥ DONA MASSA ♥</h4>
+              <div class="script">Da nossa mesa para a sua.</div>
+              <div class="sub">A PIZZA QUE ESPERA POR VOCÊ NO CONGELADOR.</div>
             </div>
+            <a href="https://instagram.com/donamassa.pizzas" target="_blank" rel="noopener" class="insta-card-link">
+              <svg class="icon-inline lg" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igGradHome" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#515BD4"/></linearGradient></defs><path fill="url(#igGradHome)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span>Siga no Instagram: @donamassa.pizzas</span>
+            </a>
           </div>
         </div>
       </section>
@@ -1149,94 +1230,31 @@
         </div>
       </section>
 
-      <!-- TELA 4: CONTATO & FINALIZAR PEDIDO -->
-      <section class="screen" id="screen-4">
-        <div class="checkout-screen-stack">
-          <div class="banner-wrap" style="margin-bottom: 4px;">
-            <div class="ribbon-olive">
-              <span class="gold-heart">♥</span> PEÇA PELO WHATSAPP <span class="gold-heart">♥</span>
-            </div>
-          </div>
-
-          <div class="order-summary-card">
-            <div class="order-summary-header">
-              <h3 id="final-summary-title">SEU PEDIDO (0)</h3>
-              <button type="button" class="clear-cart-btn" id="clear-cart-btn" onclick="clearCart()" style="display:none;">Limpar Tudo</button>
-            </div>
-
-            <div id="final-summary-list">
-              <!-- Itens renderizados via JS -->
-            </div>
-
-            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:2px solid var(--border-vintage); font-size:1.15rem; font-weight:800;">
-              <span>Total do Pedido:</span>
-              <span id="final-summary-total" style="color:var(--burgundy); font-size:1.3rem;">R$ 0,00</span>
-            </div>
-
-            <div class="form-group" style="margin-top: 6px;">
-              <label for="delivery-city-select">🛵 Cidade de Entrega (Obrigatório):</label>
-              <select id="delivery-city-select" class="city-select" onchange="saveDeliveryCity(this.value)">
-                <option value="">Selecione sua cidade de entrega...</option>
-                <option value="Torres">Torres (Entrega na Sexta-feira)</option>
-                <option value="Morrinhos do Sul">Morrinhos do Sul (Entrega na Sexta-feira)</option>
-                <option value="Três Cachoeiras">Três Cachoeiras (Entrega na Sexta-feira)</option>
-              </select>
-              <span class="city-error-msg" id="screen-city-error">⚠️ Por favor, escolha a cidade de entrega acima antes de enviar.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="screen-customer-note">📝 Seu Nome / Observação (Opcional):</label>
-              <input type="text" id="screen-customer-note" class="note-input" placeholder="Ex: João — entregar após as 14h" oninput="saveCustomerNote(this.value)">
-            </div>
-          </div>
-
-          <div class="whats-buttons-stack">
-            <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551981885658', 'screen')">
-              <span>🟢 WhatsApp (51) 98188-5658</span>
-              <span>Enviar →</span>
-            </button>
-            <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551998085374', 'screen')">
-              <span>🟢 WhatsApp (51) 99808-5374</span>
-              <span>Enviar →</span>
-            </button>
-            <a href="https://instagram.com/donamassa.pizzas" target="_blank" rel="noopener" class="insta-card-link">
-              <span>📸 Siga no Instagram: @donamassa.pizzas</span>
-            </a>
-          </div>
-
-          <div class="plaque-footer">
-            <h4>♥ DONA MASSA ♥</h4>
-            <div class="script">Da nossa mesa para a sua.</div>
-            <div class="sub">A PIZZA QUE ESPERA POR VOCÊ NO CONGELADOR.</div>
-          </div>
-        </div>
-      </section>
-
     </main>
 
     <!-- RODAPÉ FIXO FLUTUANTE (ÚNICO LOCAL COM BOTÕES DE NAVEGAÇÃO) -->
     <footer class="bottom-dock">
       <button type="button" class="floating-whatsapp-cta" id="floating-cart-bar" onclick="openCheckoutModal()">
         <div class="floating-whatsapp-left">
-          <span class="floating-whatsapp-badge" id="cart-count-badge">0 itens selecionados</span>
+          <span class="floating-whatsapp-badge" id="cart-count-badge">0 itens</span>
           <span class="floating-whatsapp-total" id="cart-total-label">R$ 0,00</span>
         </div>
         <div class="floating-whatsapp-btn-label">
-          <span>Enviar via WhatsApp</span>
-          <span>📲</span>
+          <span>Revisar e pedir</span>
+          <svg class="icon-inline" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
       </button>
 
       <div class="footer-controls-row">
         <button type="button" class="footer-menu-btn" onclick="openSectionsDrawer()">
           <span>☰</span>
-          <span>Seções</span>
+          <span>Menu</span>
         </button>
-        <button type="button" class="footer-nav-btn" id="btn-prev" onclick="stepNavigate(-1)">
-          ← Voltar
+        <button type="button" class="footer-cat-btn salgadas" id="footer-btn-salgadas" onclick="goToScreen(1)">
+          🍕 Salgadas
         </button>
-        <button type="button" class="footer-nav-btn next-primary" id="btn-next" onclick="stepNavigate(1)">
-          Pizzas Salgadas →
+        <button type="button" class="footer-cat-btn doces" id="footer-btn-doces" onclick="goToScreen(2)">
+          🍫 Doces
         </button>
       </div>
     </footer>
@@ -1250,11 +1268,11 @@
         </div>
         <div class="drawer-nav-list">
           <button type="button" class="drawer-nav-item active" data-drawer-screen="0" onclick="selectDrawerScreen(0)">
-            <span>🏠 Início &amp; Boas-vindas</span>
+            <span>🏠 Início</span>
             <span>→</span>
           </button>
           <button type="button" class="drawer-nav-item" data-drawer-screen="1" onclick="selectDrawerScreen(1)">
-            <span>🍕 Pizzas Salgadas &amp; Especial</span>
+            <span>🍕 Pizzas Salgadas</span>
             <span>→</span>
           </button>
           <button type="button" class="drawer-nav-item" data-drawer-screen="2" onclick="selectDrawerScreen(2)">
@@ -1262,13 +1280,23 @@
             <span>→</span>
           </button>
           <button type="button" class="drawer-nav-item" data-drawer-screen="3" onclick="selectDrawerScreen(3)">
-            <span>🔥 Instruções: Como Assar</span>
+            <span>🔥 Como assar</span>
             <span>→</span>
           </button>
-          <button type="button" class="drawer-nav-item" data-drawer-screen="4" onclick="selectDrawerScreen(4)">
-            <span>📲 Finalizar Pedido / Contato</span>
+          <a href="https://wa.me/5551981885658" target="_blank" rel="noopener" class="drawer-nav-item social-whats" style="text-decoration:none;">
+            <span class="nav-label-with-icon">
+              <svg class="icon-inline lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </span>
             <span>→</span>
-          </button>
+          </a>
+          <a href="https://instagram.com/donamassa.pizzas" target="_blank" rel="noopener" class="drawer-nav-item social-insta" style="text-decoration:none;">
+            <span class="nav-label-with-icon">
+              <svg class="icon-inline lg" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igGradDrawer" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#515BD4"/></linearGradient></defs><path fill="url(#igGradDrawer)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Instagram
+            </span>
+            <span>→</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1277,41 +1305,46 @@
     <div class="backdrop-overlay" id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()">
       <div class="drawer-sheet">
         <div class="drawer-header">
-          <h3>📲 Enviar Pedido via WhatsApp</h3>
+          <h3 class="whats-icon-wrap">
+            <svg class="icon-inline lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar Pedido
+          </h3>
           <button type="button" class="close-sheet-btn" onclick="closeCheckoutModal()">×</button>
         </div>
 
-        <div id="modal-cart-list" style="max-height: 210px; overflow-y: auto; background: var(--parchment-card); border: 1.5px solid var(--border-vintage); border-radius: 10px; padding: 10px;"></div>
+        <div id="modal-cart-list" style="max-height: 260px; overflow-y: auto; background: var(--parchment-card); border: 1.5px solid var(--border-vintage); border-radius: 10px; padding: 8px 10px;"></div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:800; font-size:1.15rem; padding: 4px 2px;">
-          <span>Valor Total:</span>
+        <div style="display:flex; justify-content:flex-end; align-items:center; font-weight:800; font-size:1.15rem; padding: 4px 2px;">
           <span id="modal-total-val" style="color:var(--burgundy); font-size:1.3rem;">R$ 0,00</span>
         </div>
 
         <div class="form-group">
           <label for="modal-city-select">🛵 Cidade de Entrega (Obrigatório):</label>
           <select id="modal-city-select" class="city-select" onchange="saveDeliveryCity(this.value)">
-            <option value="">Selecione sua cidade de entrega...</option>
-            <option value="Torres">Torres (Sexta-feira)</option>
-            <option value="Morrinhos do Sul">Morrinhos do Sul (Sexta-feira)</option>
-            <option value="Três Cachoeiras">Três Cachoeiras (Sexta-feira)</option>
+            <option value="">Selecione sua cidade de entrega (somente sextas-feiras)...</option>
+            <option value="Torres">Torres</option>
+            <option value="Morrinhos do Sul">Morrinhos do Sul</option>
+            <option value="Três Cachoeiras">Três Cachoeiras</option>
           </select>
           <span class="city-error-msg" id="modal-city-error">⚠️ Escolha sua cidade de entrega acima para continuar.</span>
         </div>
 
         <div class="form-group">
-          <label for="modal-customer-note">📝 Seu Nome ou Observação (Opcional):</label>
+          <label for="modal-customer-note">📝 Seu Nome ou Observação:</label>
           <input type="text" id="modal-customer-note" class="note-input" placeholder="Ex: Maria — entregar à tarde" oninput="saveCustomerNote(this.value)">
         </div>
 
         <div class="whats-buttons-stack">
           <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551981885658', 'modal')">
-            <span>🟢 Enviar para (51) 98188-5658</span>
-            <span>📲</span>
+            <span class="whats-icon-wrap">
+              <svg class="icon-inline lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enviar para (51) 98188-5658
+            </span>
+            <span>→</span>
           </button>
-          <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551998085374', 'modal')">
-            <span>🟢 Enviar para (51) 99808-5374</span>
-            <span>📲</span>
+          <button type="button" class="whats-send-secondary-btn" onclick="sendOrderWhatsApp('5551998085374', 'modal')">
+            <svg class="icon-inline" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Opção 2
           </button>
         </div>
       </div>
@@ -1669,9 +1702,7 @@
       } catch (e) {
         cart = {};
       }
-      document.getElementById("delivery-city-select").value = selectedCity;
       document.getElementById("modal-city-select").value = selectedCity;
-      document.getElementById("screen-customer-note").value = customerNote;
       document.getElementById("modal-customer-note").value = customerNote;
     }
 
@@ -1683,13 +1714,10 @@
 
     function saveDeliveryCity(city) {
       selectedCity = city;
-      document.getElementById("delivery-city-select").value = city;
       document.getElementById("modal-city-select").value = city;
 
       if (city) {
-        document.getElementById("delivery-city-select").classList.remove("error-border");
         document.getElementById("modal-city-select").classList.remove("error-border");
-        document.getElementById("screen-city-error").classList.remove("visible");
         document.getElementById("modal-city-error").classList.remove("visible");
       }
 
@@ -1700,7 +1728,6 @@
 
     function saveCustomerNote(note) {
       customerNote = note;
-      document.getElementById("screen-customer-note").value = note;
       document.getElementById("modal-customer-note").value = note;
       try {
         localStorage.setItem(STORAGE_KEY_NOTE, note);
@@ -1806,48 +1833,28 @@
 
       if (totalItems > 0) {
         floatingBar.classList.add("visible");
-        countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'pizza selecionada' : 'pizzas selecionadas'}`;
-        totalLabel.textContent = `Total: ${formatBRL(totalPrice)}`;
+        countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
+        totalLabel.textContent = formatBRL(totalPrice);
       } else {
         floatingBar.classList.remove("visible");
       }
 
-      const finalTitle = document.getElementById("final-summary-title");
-      const finalTotal = document.getElementById("final-summary-total");
-      const finalList = document.getElementById("final-summary-list");
-      const clearBtn = document.getElementById("clear-cart-btn");
       const modalList = document.getElementById("modal-cart-list");
       const modalTotal = document.getElementById("modal-total-val");
-
-      finalTitle.textContent = `ITENS DO PEDIDO (${totalItems})`;
-      finalTotal.textContent = formatBRL(totalPrice);
       modalTotal.textContent = formatBRL(totalPrice);
-      clearBtn.style.display = totalItems > 0 ? "inline-block" : "none";
 
       if (lines.length === 0) {
-        finalList.innerHTML = `
-          <p style="font-size:0.98rem; color:var(--text-muted); padding: 8px 0;">
-            Você ainda não selecionou nenhuma pizza. Toque em <strong>Pizzas Salgadas</strong> ou <strong>Pizzas Doces</strong> para escolher seus sabores!
-          </p>
-        `;
-        modalList.innerHTML = `<p style="text-align:center; color:var(--text-muted); font-size:0.98rem;">Nenhuma pizza selecionada.</p>`;
+        modalList.innerHTML = `<p style="text-align:center; color:var(--text-muted); font-size:0.92rem;">Nenhum item selecionado.</p>`;
       } else {
-        const rowsHtml = lines.map(l => `
-          <div class="summary-item">
+        modalList.innerHTML = lines.map(l => `
+          <div class="summary-item compact">
             <div class="summary-item-info">
-              <strong>${l.name}</strong>
-              <span>Tamanho: ${l.sizeLabel} — ${formatBRL(l.sub)}</span>
+              <strong>${l.qty}× ${l.name}</strong>
+              <span>${l.sizeLabel}</span>
             </div>
-            <div class="qty-controls">
-              <button type="button" class="qty-btn" style="width:32px; height:32px; font-size:1.1rem;" onclick="updateQty('${l.itemId}', '${l.sizeKey}', -1)">-</button>
-              <span class="qty-val">${l.qty}</span>
-              <button type="button" class="qty-btn plus" style="width:32px; height:32px; font-size:1.1rem;" onclick="updateQty('${l.itemId}', '${l.sizeKey}', 1)">+</button>
-            </div>
+            <span class="summary-item-price">${formatBRL(l.sub)}</span>
           </div>
         `).join("");
-
-        finalList.innerHTML = rowsHtml;
-        modalList.innerHTML = rowsHtml;
       }
     }
 
@@ -1858,24 +1865,19 @@
     }
 
     function updateFooterButtons() {
-      document.getElementById("btn-prev").disabled = (currentScreen === 0);
-      const nextBtn = document.getElementById("btn-next");
-      const nextLabels = [
-        "Pizzas Salgadas →",
-        "Pizzas Doces →",
-        "Como Assar →",
-        "Finalizar Pedido →",
-        "📲 Enviar Pedido"
-      ];
-      nextBtn.textContent = nextLabels[currentScreen];
+      const salgadasBtn = document.getElementById("footer-btn-salgadas");
+      const docesBtn = document.getElementById("footer-btn-doces");
+      salgadasBtn.classList.toggle("active-screen", currentScreen === 1);
+      docesBtn.classList.toggle("active-screen", currentScreen === 2);
 
-      document.querySelectorAll(".drawer-nav-item").forEach((item, idx) => {
-        item.classList.toggle("active", idx === currentScreen);
+      document.querySelectorAll(".drawer-nav-item[data-drawer-screen]").forEach((item) => {
+        const screenIdx = Number(item.getAttribute("data-drawer-screen"));
+        item.classList.toggle("active", screenIdx === currentScreen);
       });
     }
 
     function goToScreen(index) {
-      currentScreen = Math.max(0, Math.min(4, index));
+      currentScreen = Math.max(0, Math.min(3, index));
       document.querySelectorAll(".screen").forEach((el, idx) => {
         el.classList.toggle("active", idx === currentScreen);
         if (idx === currentScreen) {
@@ -1883,14 +1885,6 @@
         }
       });
       updateFooterButtons();
-    }
-
-    function stepNavigate(dir) {
-      if (currentScreen === 4 && dir === 1) {
-        openCheckoutModal();
-        return;
-      }
-      goToScreen(currentScreen + dir);
     }
 
     function openSectionsDrawer() {
@@ -1908,10 +1902,7 @@
 
     function openCheckoutModal() {
       const { totalItems } = getCartSummaryData();
-      if (totalItems === 0) {
-        goToScreen(4);
-        return;
-      }
+      if (totalItems === 0) return;
       document.getElementById("checkout-modal").classList.add("open");
     }
 
@@ -1924,16 +1915,15 @@
 
       // Obriga o cliente a escolher uma cidade no fluxo antes de disparar o link
       if (!selectedCity || selectedCity.trim() === "") {
-        const selectEl = origin === "modal"
-          ? document.getElementById("modal-city-select")
-          : document.getElementById("delivery-city-select");
-        const errorEl = origin === "modal"
-          ? document.getElementById("modal-city-error")
-          : document.getElementById("screen-city-error");
+        const selectEl = document.getElementById("modal-city-select");
+        const errorEl = document.getElementById("modal-city-error");
 
         selectEl.classList.add("error-border");
         errorEl.classList.add("visible");
         selectEl.focus();
+        if (origin !== "modal") {
+          openCheckoutModal();
+        }
         return;
       }
 
