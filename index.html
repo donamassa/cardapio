@@ -6,23 +6,25 @@
   <title>Dona Massa — Pizzas Artesanais & Congeladas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --parchment: #F6EBD8;
-      --parchment-dark: #EAD9BC;
-      --parchment-card: #FDF8EE;
-      --burgundy: #6D140E;
+      --parchment-dark: #E8D5B7;
+      --parchment-card: #FFFDF9;
+      --burgundy: #72160F;
       --burgundy-dark: #4E0D08;
-      --olive: #1E2E16;
-      --olive-light: #2C4221;
+      --burgundy-light: #8F2018;
+      --olive: #1F3117;
+      --olive-light: #2E4622;
       --gold: #C8963E;
-      --gold-light: #E5BA67;
-      --text-main: #231712;
-      --text-muted: #5A463C;
-      --border-vintage: #B68F52;
-      --whats-green: #1E8238;
-      --whats-green-dark: #146128;
+      --gold-light: #E6BC6A;
+      --text-main: #221611;
+      --text-muted: #574339;
+      --border-vintage: #C29B61;
+      --whats-green: #1FAF4B;
+      --whats-green-dark: #158537;
+      --danger: #B91C1C;
     }
 
     * {
@@ -36,104 +38,30 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background-color: #241811;
-      font-family: 'EB Garamond', Georgia, serif;
+      background-color: #1E140F;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
+      font-size: 16px;
+      line-height: 1.45;
     }
 
-    /* Estrutura Principal Mobile-First Travada em 100dvh (Sem Rolagem de Página) */
+    /* Estrutura Principal Mobile-First com Rolagem Interna por Tela e Rodapé Fixo */
     .app-shell {
-      max-width: 500px;
+      max-width: 520px;
       width: 100%;
       height: 100dvh;
       margin: 0 auto;
       background-color: var(--parchment);
-      background-image:
-        radial-gradient(circle at 50% 25%, rgba(255, 252, 244, 0.8) 0%, rgba(234, 217, 188, 0.55) 100%);
+      background-image: radial-gradient(circle at 50% 20%, rgba(255, 253, 248, 0.85) 0%, rgba(232, 213, 183, 0.6) 100%);
       display: flex;
       flex-direction: column;
       position: relative;
-      box-shadow: 0 0 45px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.75);
       border-left: 2px solid var(--border-vintage);
       border-right: 2px solid var(--border-vintage);
     }
 
-    /* Moldura Dupla Vintage Fiel ao Cardápio Impresso */
-    .app-frame {
-      position: absolute;
-      inset: 5px;
-      border: 1.5px solid var(--border-vintage);
-      border-radius: 10px;
-      pointer-events: none;
-      z-index: 25;
-    }
-
-    /* Topo: Grade de Navegação Fixa (SEM Carrossel / Tudo Visível Simultaneamente) */
-    .top-nav {
-      position: relative;
-      z-index: 15;
-      background: linear-gradient(180deg, #EFE0C4 0%, var(--parchment) 100%);
-      border-bottom: 1.5px solid var(--border-vintage);
-      padding: 8px 9px 6px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .nav-grid-row-1 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-    }
-
-    .nav-grid-row-2 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-    }
-
-    .nav-btn {
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      padding: 5px 4px;
-      border-radius: 5px;
-      border: 1px solid var(--border-vintage);
-      background-color: var(--parchment-card);
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all 0.18s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      text-align: center;
-      white-space: nowrap;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    }
-
-    .nav-btn:active {
-      transform: scale(0.97);
-    }
-
-    .nav-btn.active {
-      background: linear-gradient(180deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-      color: #FFF8EB;
-      border-color: var(--gold);
-      box-shadow: 0 2px 5px rgba(109, 20, 14, 0.35);
-    }
-
-    .nav-btn.olive-theme.active {
-      background: linear-gradient(180deg, var(--olive-light) 0%, var(--olive) 100%);
-      color: #FFF8EB;
-      border-color: var(--gold);
-      box-shadow: 0 2px 5px rgba(30, 46, 22, 0.35);
-    }
-
-    /* Área de Telas (Navegação por Telas Fixas) */
+    /* Área de Telas: Rolagem Vertical Fluida em Cada Seção */
     .screens-viewport {
       flex: 1;
       position: relative;
@@ -144,493 +72,349 @@
     .screen {
       position: absolute;
       inset: 0;
-      padding: 8px 12px 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px 16px 36px;
       opacity: 0;
       pointer-events: none;
-      transform: translateX(14px);
+      transform: translateY(10px);
       transition: opacity 0.22s ease, transform 0.22s ease;
-      overflow: hidden;
     }
 
     .screen.active {
       opacity: 1;
       pointer-events: auto;
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
     /* Banners de Título Fiéis ao Cardápio Original */
     .banner-wrap {
       text-align: center;
-      margin: 0 0 6px;
-      flex-shrink: 0;
+      margin: 0 0 18px;
     }
 
-    /* 1. Placa Bordô com Filete Dourado (PIZZAS DA CASA / PIZZAS DOCES) */
     .plaque-burgundy {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      background: linear-gradient(180deg, #7A1811 0%, #580E08 100%);
-      color: #FDF5E6;
+      gap: 10px;
+      background: linear-gradient(180deg, #821B13 0%, #580E08 100%);
+      color: #FFF9EE;
       font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.94rem;
-      letter-spacing: 1.3px;
-      padding: 6px 18px;
-      border-radius: 6px;
-      border: 1.5px solid var(--gold);
-      outline: 1.5px solid var(--burgundy);
-      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.18);
-      width: 96%;
-      max-width: 390px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 1.4px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+      outline: 2px solid var(--burgundy);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      width: 100%;
     }
 
-    /* 2. Faixa Verde-Oliva (PIZZAS TRADICIONAIS & SALGADAS / PEÇA PELO WHATSAPP) */
     .ribbon-olive {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      background: linear-gradient(180deg, #273B1D 0%, #172411 100%);
-      color: #FDF5E6;
+      gap: 10px;
+      background: linear-gradient(180deg, #2B4220 0%, #192712 100%);
+      color: #FFF9EE;
       font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.86rem;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      border-radius: 5px;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-      width: 98%;
-      max-width: 410px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: 1.2px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      width: 100%;
     }
 
-    /* 3. Banner Arqueado Bordô (COMO ASSAR) */
     .banner-arched-burgundy {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(180deg, #7B1811 0%, #540D08 100%);
-      color: #FDF5E6;
+      background: linear-gradient(180deg, #821B13 0%, #580E08 100%);
+      color: #FFF9EE;
       font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.96rem;
-      letter-spacing: 1.4px;
-      padding: 6px 24px;
-      border-radius: 18px 18px 5px 5px;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.18);
-    }
-
-    /* 4. Banner Arqueado Duplo Verde-Oliva (POR QUE ESCOLHER A DONA MASSA?) */
-    .banner-arched-olive {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #26391C 0%, #15220F 100%);
-      color: #FDF5E6;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      line-height: 1.22;
-      letter-spacing: 1.1px;
-      padding: 6px 20px;
-      border-radius: 14px;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
-      width: 96%;
-      max-width: 390px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 1.5px;
+      padding: 10px 28px;
+      border-radius: 22px 22px 8px 8px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      width: 100%;
     }
 
     .gold-heart {
       color: var(--gold-light);
-      font-size: 0.9em;
     }
 
-    /* TELA 0: BOAS-VINDAS / INÍCIO */
-    .hero-box {
+    /* =====================================================
+       TELA 0: INÍCIO / BOAS-VINDAS (ACOLHEDORA E FAMILIAR)
+       ===================================================== */
+    .welcome-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      text-align: center;
-    }
-
-    .hero-emblem-wrap {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 0;
-      width: 100%;
+      gap: 18px;
     }
 
     .hero-emblem {
-      max-height: 100%;
-      max-width: 245px;
-      width: auto;
+      width: 100%;
+      max-width: 280px;
       height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(55, 30, 15, 0.16));
-    }
-
-    .pillars-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      width: 100%;
-      padding: 6px 0;
-      border-top: 1px solid var(--border-vintage);
-      border-bottom: 1px solid var(--border-vintage);
-      flex-shrink: 0;
-    }
-
-    .pillar-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      padding: 0 4px;
-      text-align: center;
-    }
-
-    .pillar-col:not(:last-child) {
-      border-right: 1px solid var(--border-vintage);
-    }
-
-    .pillar-col svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--burgundy);
-      fill: none;
-      stroke-width: 1.9;
-    }
-
-    .pillar-col span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.58rem;
-      font-weight: 700;
-      line-height: 1.12;
-      color: var(--text-main);
-    }
-
-    .delivery-ribbon-card {
-      background: linear-gradient(135deg, var(--olive) 0%, var(--olive-light) 100%);
-      color: #FFF8EB;
-      border: 1.5px solid var(--gold);
-      border-radius: 7px;
-      padding: 6px 10px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      flex-shrink: 0;
-      margin: 4px 0;
-    }
-
-    .delivery-ribbon-card strong {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      color: var(--gold-light);
       display: block;
-      letter-spacing: 0.6px;
+      margin: 0 auto;
+      filter: drop-shadow(0 6px 14px rgba(55, 30, 15, 0.18));
     }
 
-    .delivery-ribbon-card span {
-      font-size: 0.82rem;
-    }
-
-    .welcome-shortcuts {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-      width: 100%;
-      flex-shrink: 0;
-    }
-
-    .shortcut-btn {
-      font-family: 'Cinzel', serif;
-      font-size: 0.66rem;
-      font-weight: 700;
-      padding: 7px 8px;
-      border-radius: 6px;
-      border: 1.5px solid var(--border-vintage);
+    /* Card de Boas-vindas + Sobre Nós Unificado */
+    .welcome-story-card {
       background-color: var(--parchment-card);
+      border: 1.5px solid var(--border-vintage);
+      border-radius: 14px;
+      padding: 18px;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(45, 25, 10, 0.07);
+      text-align: center;
+    }
+
+    .welcome-story-card h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--burgundy);
+      margin-bottom: 8px;
+    }
+
+    .welcome-story-card p {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.18rem;
+      line-height: 1.45;
       color: var(--text-main);
-      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    .about-split {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: transform 0.15s ease;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+      border-top: 1px dashed var(--border-vintage);
+      padding-top: 14px;
     }
 
-    .shortcut-btn:active {
-      transform: scale(0.98);
-    }
-
-    .shortcut-btn.primary {
-      grid-column: span 2;
-      background: linear-gradient(180deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-      color: #FFF8EB;
-      border-color: var(--gold);
-      font-size: 0.78rem;
-      padding: 9px;
-      box-shadow: 0 3px 8px rgba(109, 20, 14, 0.28);
-    }
-
-    /* TELA 1: ESPECIAL DA CASA (DONA MASSA) */
-    .especial-showcase {
-      background-color: var(--parchment-card);
-      border: 2px solid var(--gold);
-      border-radius: 11px;
-      padding: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    .about-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin: auto 0;
-    }
-
-    .especial-badge {
-      display: inline-block;
-      background-color: rgba(200, 150, 62, 0.22);
-      border: 1px solid var(--gold);
-      color: var(--burgundy);
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 50px;
-      margin-bottom: 4px;
-      letter-spacing: 0.6px;
-    }
-
-    .especial-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .especial-info {
       flex: 1;
     }
 
-    .especial-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.12rem;
-      font-weight: 800;
+    .about-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+      font-weight: 600;
       color: var(--text-main);
-      margin-bottom: 4px;
     }
 
-    .especial-desc {
-      font-size: 0.94rem;
-      line-height: 1.28;
-      color: var(--text-muted);
-    }
-
-    /* Enquadramento circular para ocultar a sobra no topo de pizza-especial.webp */
-    .especial-img-frame {
-      width: 108px;
-      height: 108px;
+    .about-icon {
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
-      border: 2.5px solid var(--gold);
-      overflow: hidden;
+      background-color: #F6EBD8;
+      border: 1px solid var(--border-vintage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      background-color: #2A1810;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      font-size: 0.95rem;
     }
 
-    .especial-img {
+    .about-oil-img {
+      width: 110px;
+      height: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.16));
+    }
+
+    /* Aviso de Entregas Elegante e de Alta Leitura */
+    .delivery-highlight-box {
+      background-color: #FFF8EB;
+      border: 2px solid var(--gold);
+      border-left: 6px solid var(--burgundy);
+      border-radius: 12px;
+      padding: 14px 16px;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 88%;
-      transform: scale(1.12);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .delivery-highlight-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .delivery-highlight-text strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--burgundy);
+      letter-spacing: 0.4px;
+      margin-bottom: 2px;
+    }
+
+    .delivery-highlight-text span {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-main);
       display: block;
     }
 
-    /* Seletores de Tamanho da Especial (+ {n} -) */
-    .size-selectors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      border-top: 1px dashed var(--border-vintage);
-      padding-top: 8px;
+    /* Botões de Ação da Tela Inicial (Claramente Botões Clicáveis) */
+    .home-actions-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
     }
 
-    .size-box {
-      background-color: var(--parchment);
-      border: 1.5px solid var(--border-vintage);
-      border-radius: 8px;
-      padding: 6px 4px;
-      text-align: center;
+    .home-actions-grid {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.15s ease;
+      gap: 12px;
+      width: 100%;
     }
 
-    .size-box.has-qty {
-      border-color: var(--burgundy);
-      background-color: #FBE8E2;
-      box-shadow: inset 0 0 0 1px var(--burgundy);
-    }
-
-    .size-label {
+    .home-action-btn {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 12px;
       font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      color: var(--text-main);
-      text-transform: uppercase;
-    }
-
-    .size-cm {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.58rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .price-pill-burgundy {
-      background-color: var(--burgundy);
-      color: #FFF8EB;
-      font-family: 'EB Garamond', serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      padding: 1px 8px;
-      border-radius: 5px;
-      letter-spacing: 0.3px;
-    }
-
-    .qty-control {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 2px;
-    }
-
-    .qty-btn {
-      width: 24px;
-      height: 24px;
-      border-radius: 5px;
-      border: 1px solid var(--burgundy);
-      background-color: #FFF;
-      color: var(--burgundy);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      line-height: 1;
+      letter-spacing: 0.6px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .qty-btn.plus {
-      background-color: var(--burgundy);
-      color: #FFF;
-    }
-
-    .qty-val {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 800;
-      min-width: 14px;
-      text-align: center;
-      color: var(--text-main);
-    }
-
-    /* BARRA DE SUB-PAGINAÇÃO INTERNA (TELAS 2 E 3: SALGADAS E DOCES) */
-    .subpage-bar {
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      background-color: rgba(200, 150, 62, 0.16);
-      border: 1px solid var(--border-vintage);
-      border-radius: 6px;
-      padding: 4px 8px;
-      margin-bottom: 6px;
-      flex-shrink: 0;
+      text-align: left;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .subpage-bar span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      font-weight: 700;
+    .home-action-btn:active {
+      transform: translateY(2px);
+    }
+
+    .home-action-btn.primary-burgundy {
+      background: linear-gradient(180deg, var(--burgundy-light) 0%, var(--burgundy) 100%);
+      color: #FFF9EE;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 0 var(--burgundy-dark), 0 6px 14px rgba(114, 22, 15, 0.3);
+    }
+
+    .home-action-btn.primary-olive {
+      background: linear-gradient(180deg, var(--olive-light) 0%, var(--olive) 100%);
+      color: #FFF9EE;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 0 #111C0C, 0 6px 14px rgba(31, 49, 23, 0.28);
+    }
+
+    .home-secondary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .home-action-btn.secondary-warm {
+      background: linear-gradient(180deg, #FFFDF9 0%, #EFE0C6 100%);
       color: var(--burgundy);
-    }
-
-    .subpage-tabs {
-      display: flex;
-      gap: 4px;
-    }
-
-    .subpage-tab {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 800;
-      min-width: 26px;
-      height: 22px;
-      padding: 0 6px;
-      border-radius: 4px;
-      border: 1px solid var(--border-vintage);
-      background: var(--parchment-card);
-      color: var(--text-main);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
+      border: 2px solid var(--burgundy);
+      box-shadow: 0 3px 0 var(--burgundy), 0 5px 10px rgba(0, 0, 0, 0.08);
+      font-size: 0.88rem;
+      padding: 13px 12px;
       justify-content: center;
+      text-align: center;
+      gap: 6px;
     }
 
-    .subpage-tab.active {
-      background: var(--burgundy);
-      color: #FFF8EB;
-      border-color: var(--gold);
-    }
-
-    /* LISTA DE CARDS DE PIZZA COMPACTOS E FIÉIS */
+    /* =====================================================
+       CARDS DE PIZZAS & TAMANHOS EM 3 LINHAS EMPILHADAS
+       ===================================================== */
     .pizza-cards-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      flex: 1;
-      justify-content: flex-start;
-      min-height: 0;
+      gap: 18px;
     }
 
     .pizza-card {
       background-color: var(--parchment-card);
-      border: 1px solid var(--border-vintage);
-      border-radius: 8px;
-      padding: 6px 8px;
+      border: 1.5px solid var(--border-vintage);
+      border-radius: 14px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      gap: 14px;
+      box-shadow: 0 4px 12px rgba(40, 22, 10, 0.07);
+    }
+
+    /* Destaque Especial da Casa no Topo das Salgadas */
+    .pizza-card.featured-especial {
+      background: linear-gradient(180deg, #FFFDF8 0%, #FBF1DF 100%);
+      border: 2.5px solid var(--gold);
+      outline: 2px solid var(--burgundy);
+      box-shadow: 0 8px 22px rgba(114, 22, 15, 0.16);
+      margin-bottom: 6px;
+    }
+
+    .especial-crown-Ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+      background: linear-gradient(90deg, var(--burgundy) 0%, var(--burgundy-light) 100%);
+      color: #FFF9EE;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 5px 12px;
+      border-radius: 50px;
+      border: 1px solid var(--gold);
     }
 
     .pizza-card-head {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 14px;
     }
 
     .pizza-thumb {
-      width: 58px;
-      height: 40px;
+      width: 92px;
+      height: 66px;
       object-fit: contain;
       flex-shrink: 0;
-      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.22));
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.22));
+    }
+
+    .pizza-card.featured-especial .pizza-thumb {
+      width: 112px;
+      height: 92px;
     }
 
     .pizza-meta {
@@ -640,826 +424,735 @@
 
     .pizza-name {
       font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
+      font-size: 1.22rem;
       font-weight: 800;
-      color: var(--text-main);
-      line-height: 1.12;
+      color: var(--burgundy);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .pizza-card.featured-especial .pizza-name {
+      font-size: 1.35rem;
     }
 
     .pizza-ingredients {
-      font-size: 0.77rem;
+      font-size: 0.98rem;
       color: var(--text-muted);
-      line-height: 1.14;
-      margin-top: 1px;
+      line-height: 1.4;
+      font-weight: 500;
     }
 
-    /* Faixa de Tamanhos em Cada Card: Grande 35cm | Broto 20cm | Mini 14cm */
-    .pizza-sizes-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      border-top: 1px dashed rgba(182, 143, 82, 0.6);
-      padding-top: 4px;
+    /* 3 Linhas Horizontais para Seleção de Tamanho (Grande, Broto, Mini) */
+    .pizza-sizes-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px dashed var(--border-vintage);
+      padding-top: 12px;
     }
 
-    .mini-size-cell {
+    .size-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: var(--parchment);
-      border: 1px solid rgba(182, 143, 82, 0.55);
-      border-radius: 5px;
-      padding: 2px 4px;
+      background-color: #F7EFE0;
+      border: 1.5px solid #D5B887;
+      border-radius: 10px;
+      padding: 9px 12px;
       transition: all 0.15s ease;
     }
 
-    .mini-size-cell.has-qty {
-      background-color: #FBE8E2;
+    .size-row.has-qty {
+      background-color: #FDECE8;
       border-color: var(--burgundy);
       box-shadow: inset 0 0 0 1px var(--burgundy);
     }
 
-    .mini-size-info {
+    .size-row-left {
       display: flex;
-      flex-direction: column;
-      line-height: 1.02;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .mini-size-info small {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.53rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .mini-size-info strong {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.78rem;
+    .size-row-title {
+      font-size: 1rem;
       font-weight: 800;
-      color: var(--burgundy);
+      color: var(--text-main);
     }
 
-    .mini-qty-ctrl {
+    .size-row-cm {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .size-row-right {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 12px;
     }
 
-    .mini-btn {
-      width: 19px;
-      height: 19px;
-      border-radius: 4px;
-      border: 1px solid var(--burgundy);
-      background: #FFF;
+    .size-row-price {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--burgundy);
+      white-space: nowrap;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 2px solid var(--burgundy);
+      background-color: #FFFFFF;
       color: var(--burgundy);
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 0.76rem;
+      font-size: 1.25rem;
       line-height: 1;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 2px 0 rgba(114, 22, 15, 0.2);
+      transition: transform 0.1s ease;
     }
 
-    .mini-btn.plus {
-      background: var(--burgundy);
-      color: #FFF;
+    .qty-btn:active {
+      transform: scale(0.93);
     }
 
-    .mini-val {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
+    .qty-btn.plus {
+      background-color: var(--burgundy);
+      color: #FFFFFF;
+    }
+
+    .qty-val {
+      font-size: 1.08rem;
       font-weight: 800;
-      min-width: 11px;
+      min-width: 22px;
       text-align: center;
+      color: var(--text-main);
     }
 
-    /* TELA 4: COMO ASSAR */
-    .steps-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      flex: 1;
+    /* =====================================================
+       TELA 3: COMO ASSAR
+       ===================================================== */
+    .steps-card {
       background-color: var(--parchment-card);
       border: 1.5px solid var(--border-vintage);
-      border-radius: 10px;
-      padding: 6px 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .step-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 4px 0;
+      gap: 14px;
+      padding-bottom: 14px;
       border-bottom: 1.5px dotted var(--border-vintage);
     }
 
     .step-row:last-child {
       border-bottom: none;
+      padding-bottom: 0;
     }
 
     .step-num-badge {
-      width: 30px;
-      height: 30px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background-color: var(--burgundy);
       color: #FFF8EB;
       font-family: 'EB Garamond', serif;
-      font-weight: 700;
-      font-size: 1.15rem;
+      font-weight: 800;
+      font-size: 1.35rem;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      border: 1px solid var(--gold);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+      border: 1.5px solid var(--gold);
     }
 
     .step-illust {
-      width: 48px;
-      height: 48px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
       flex-shrink: 0;
     }
 
     .step-desc {
-      font-size: 0.98rem;
-      line-height: 1.2;
+      font-size: 1.06rem;
+      line-height: 1.35;
       color: var(--text-main);
       font-weight: 600;
     }
 
-    /* TELA 5: POR QUE ESCOLHER A DONA MASSA */
-    .why-card {
-      background-color: var(--parchment-card);
-      border: 1.5px solid var(--border-vintage);
-      border-radius: 10px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      flex: 1;
-      margin-bottom: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .why-list {
+    /* =====================================================
+       TELA 4: FINALIZAR PEDIDO & CONTATO
+       ===================================================== */
+    .checkout-screen-stack {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .why-row {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .why-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background-color: var(--parchment);
-      border: 1px solid var(--border-vintage);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 0.9rem;
-    }
-
-    /* Recorte clip-path para ocultar o artefato branco "OS" no canto superior esquerdo de azeite-tomates.webp */
-    .why-illust-oil {
-      width: 126px;
-      height: auto;
-      max-height: 190px;
-      object-fit: contain;
-      flex-shrink: 0;
-      clip-path: polygon(34% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 72%, 27% 72%, 27% 14%, 34% 14%);
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
-    }
-
-    /* TELA 6: CONTATO & FINALIZAR PEDIDO */
-    .contact-screen-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex: 1;
-      gap: 6px;
-      min-height: 0;
+      gap: 16px;
     }
 
     .order-summary-card {
       background-color: var(--parchment-card);
       border: 1.5px solid var(--border-vintage);
-      border-radius: 8px;
-      padding: 8px 10px;
-      flex: 1;
-      min-height: 0;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
+      gap: 12px;
     }
 
     .order-summary-header {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--burgundy);
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--border-vintage);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
+      border-bottom: 1.5px solid var(--border-vintage);
+      padding-bottom: 10px;
+    }
+
+    .order-summary-header h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--burgundy);
     }
 
     .clear-cart-btn {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: var(--burgundy);
-      background: rgba(109, 20, 14, 0.08);
-      border: 1px solid var(--burgundy);
-      border-radius: 4px;
-      padding: 2px 6px;
+      color: var(--danger);
+      background: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      border-radius: 6px;
+      padding: 5px 10px;
       cursor: pointer;
-    }
-
-    .summary-items-scroll {
-      flex: 1;
-      overflow-y: auto;
-      padding: 4px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
     }
 
     .summary-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.84rem;
-      padding: 3px 0;
-      border-bottom: 1px dashed rgba(182, 143, 82, 0.35);
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-vintage);
     }
 
-    .city-selector-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding-top: 5px;
-      border-top: 1px solid rgba(182, 143, 82, 0.4);
-      flex-shrink: 0;
-    }
-
-    .city-selector-row label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      font-weight: 700;
+    .summary-item-info strong {
+      font-size: 1.04rem;
       color: var(--text-main);
-      white-space: nowrap;
+      display: block;
     }
 
-    .city-select {
-      flex: 1;
+    .summary-item-info span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-item-price {
       font-family: 'EB Garamond', serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 3px 6px;
-      border-radius: 5px;
-      border: 1px solid var(--border-vintage);
-      background-color: var(--parchment);
-      color: var(--text-main);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--burgundy);
     }
 
-    .whats-contacts-box {
-      text-align: center;
+    .form-group {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      flex-shrink: 0;
+      gap: 6px;
     }
 
-    .whats-direct-btn {
+    .form-group label {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .city-select, .note-input {
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid var(--border-vintage);
+      background-color: #FFF;
+      color: var(--text-main);
+    }
+
+    .city-select.error-border {
+      border-color: var(--danger);
+      background-color: #FEF2F2;
+    }
+
+    .city-error-msg {
+      display: none;
+      color: var(--danger);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .city-error-msg.visible {
+      display: block;
+    }
+
+    .whats-buttons-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .whats-send-large-btn {
+      width: 100%;
+      background: linear-gradient(180deg, var(--whats-green) 0%, var(--whats-green-dark) 100%);
+      color: #FFFFFF;
+      border: 2px solid #A7F3D0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 0 #0F5E26, 0 6px 14px rgba(21, 133, 55, 0.3);
+    }
+
+    .whats-send-large-btn:active {
+      transform: translateY(2px);
+    }
+
+    .insta-card-link {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       background-color: var(--parchment-card);
-      border: 2px solid var(--whats-green);
-      color: var(--text-main);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-family: 'EB Garamond', serif;
-      font-size: 1.18rem;
+      border: 1.5px solid var(--border-vintage);
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1.05rem;
       font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-      transition: all 0.15s ease;
-    }
-
-    .whats-direct-btn:active {
-      transform: scale(0.98);
-      background-color: #E8F6EC;
-    }
-
-    .whats-direct-btn small {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--whats-green-dark);
-      background: #D8F3DF;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .insta-row {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text-main);
+      color: var(--burgundy);
       text-decoration: none;
     }
 
     .plaque-footer {
       background: linear-gradient(180deg, #6E150F 0%, #4D0C08 100%);
       color: #FDF5E6;
-      border: 1.5px solid var(--gold);
-      border-radius: 8px;
-      padding: 6px 12px;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 14px;
       text-align: center;
-      flex-shrink: 0;
     }
 
     .plaque-footer h4 {
       font-family: 'Cinzel', serif;
-      font-size: 0.92rem;
-      letter-spacing: 1.4px;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
     }
 
     .plaque-footer .script {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.05rem;
+      font-size: 1.35rem;
       color: #F8E3B4;
-      line-height: 1.1;
+      margin: 2px 0;
     }
 
     .plaque-footer .sub {
       font-family: 'Cinzel', serif;
-      font-size: 0.56rem;
-      letter-spacing: 0.7px;
+      font-size: 0.7rem;
+      letter-spacing: 0.8px;
       color: var(--gold-light);
-      margin-top: 2px;
     }
 
-    /* BARRA INFERIOR GUIADA + BOTÃO FLUTUANTE DE WHATSAPP */
+    /* =====================================================
+       RODAPÉ FLUTUANTE FIXO (BARRA DE WHATSAPP + NAVEGAÇÃO)
+       ===================================================== */
     .bottom-dock {
       position: relative;
-      z-index: 15;
-      background: linear-gradient(0deg, #E8D5B5 0%, var(--parchment) 100%);
-      border-top: 1.5px solid var(--border-vintage);
-      padding: 6px 10px 8px;
+      z-index: 30;
+      background: linear-gradient(180deg, #EFE0C4 0%, #E2CCA4 100%);
+      border-top: 2px solid var(--gold);
+      padding: 10px 14px 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 10px;
       flex-shrink: 0;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.18);
     }
 
-    /* Botão Flutuante "Enviar Pedido via WhatsApp" (Aparece ao selecionar 1+ item) */
-    .floating-checkout-bar {
+    /* Card/Botão Flutuante de Pedido via WhatsApp — Alto Contraste e Legibilidade */
+    .floating-whatsapp-cta {
       display: none;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(90deg, var(--whats-green) 0%, var(--whats-green-dark) 100%);
-      color: #FFF;
-      padding: 7px 11px;
-      border-radius: 7px;
-      border: 1px solid #A4E8B5;
-      box-shadow: 0 3px 10px rgba(20, 97, 40, 0.35);
-      cursor: pointer;
       width: 100%;
+      background: linear-gradient(180deg, #22C35E 0%, #158537 100%);
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 2px solid #BBF7D0;
+      box-shadow: 0 4px 0 #0F5E26, 0 6px 16px rgba(21, 133, 55, 0.4);
+      cursor: pointer;
       text-align: left;
-      animation: popIn 0.22s ease;
+      animation: slideUpPop 0.22s ease;
     }
 
-    .floating-checkout-bar.visible {
+    .floating-whatsapp-cta.visible {
       display: flex;
     }
 
-    @keyframes popIn {
-      from { transform: translateY(6px); opacity: 0; }
+    @keyframes slideUpPop {
+      from { transform: translateY(10px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
-    .checkout-left {
+    .floating-whatsapp-left {
       display: flex;
-      align-items: center;
-      gap: 7px;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .floating-whatsapp-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #DCFCE7;
+    }
+
+    .floating-whatsapp-total {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .floating-whatsapp-btn-label {
+      background-color: #FFFFFF;
+      color: #146C2E;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 9px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
     }
 
-    .checkout-badge {
-      background: #FFF;
-      color: var(--whats-green-dark);
-      padding: 2px 7px;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 0.72rem;
-    }
-
-    .checkout-action {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 4px 9px;
-      border-radius: 5px;
+    /* Linha de Botões de Controle no Rodapé Fixo */
+    .footer-controls-row {
       display: flex;
       align-items: center;
-      gap: 4px;
-    }
-
-    .step-nav-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 8px;
+      width: 100%;
     }
 
-    .step-btn {
+    .footer-menu-btn {
       font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 7px 12px;
-      border-radius: 6px;
-      border: 1.5px solid var(--border-vintage);
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid var(--burgundy);
+      background-color: var(--parchment-card);
+      color: var(--burgundy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 0 rgba(114, 22, 15, 0.25);
+      white-space: nowrap;
+    }
+
+    .footer-nav-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid var(--border-vintage);
       background-color: var(--parchment-card);
       color: var(--text-main);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-    }
-
-    .step-btn.next {
-      background: linear-gradient(180deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-      color: #FFF8EB;
-      border-color: var(--gold);
-      flex: 1;
       justify-content: center;
+      gap: 6px;
+      box-shadow: 0 3px 0 rgba(90, 70, 60, 0.2);
     }
 
-    .step-btn:disabled {
-      opacity: 0.38;
+    .footer-nav-btn.next-primary {
+      flex: 1;
+      background: linear-gradient(180deg, var(--burgundy-light) 0%, var(--burgundy) 100%);
+      color: #FFF9EE;
+      border-color: var(--gold);
+      box-shadow: 0 3px 0 var(--burgundy-dark);
+    }
+
+    .footer-nav-btn:disabled {
+      opacity: 0.35;
       pointer-events: none;
     }
 
-    .step-indicator {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      padding: 0 4px;
-      white-space: nowrap;
-    }
-
-    /* MODAL DE REVISÃO E ENVIO DO PEDIDO VIA WHATSAPP */
-    .modal-backdrop {
+    /* =====================================================
+       MENU SANDUÍCHE (GAVETA DE SEÇÕES) & MODAL WHATSAPP
+       ===================================================== */
+    .backdrop-overlay {
       position: fixed;
       inset: 0;
       background: rgba(20, 12, 8, 0.76);
       z-index: 100;
       display: none;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: 14px;
     }
 
-    .modal-backdrop.open {
+    .backdrop-overlay.open {
       display: flex;
     }
 
-    .modal-card {
+    .drawer-sheet {
       background-color: var(--parchment);
-      border: 2px solid var(--gold);
-      border-radius: 12px;
-      max-width: 440px;
+      border-top: 3px solid var(--gold);
+      border-radius: 20px 20px 0 0;
+      max-width: 520px;
       width: 100%;
-      padding: 14px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+      padding: 20px 18px 26px;
+      box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       max-height: 90dvh;
+      overflow-y: auto;
+      animation: sheetUp 0.22s ease;
     }
 
-    .modal-header {
+    @keyframes sheetUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .drawer-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-vintage);
-      padding-bottom: 6px;
+      border-bottom: 1.5px solid var(--border-vintage);
+      padding-bottom: 10px;
     }
 
-    .modal-header h3 {
+    .drawer-header h3 {
       font-family: 'Cinzel', serif;
-      font-size: 0.92rem;
+      font-size: 1.1rem;
+      font-weight: 800;
       color: var(--burgundy);
     }
 
-    .close-modal {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      line-height: 1;
-      color: var(--text-muted);
+    .close-sheet-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-vintage);
+      background: var(--parchment-card);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
       cursor: pointer;
-      padding: 0 4px;
-    }
-
-    .modal-cart-items {
-      max-height: 190px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      background: var(--parchment-card);
-      border: 1px solid var(--border-vintage);
-      border-radius: 7px;
-      padding: 8px;
-    }
-
-    .modal-field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .modal-field-group label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.64rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .modal-input {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.92rem;
-      padding: 6px 8px;
-      border-radius: 6px;
-      border: 1px solid var(--border-vintage);
-      background: var(--parchment-card);
-      color: var(--text-main);
-      width: 100%;
-    }
-
-    .modal-send-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      background: linear-gradient(180deg, var(--whats-green) 0%, var(--whats-green-dark) 100%);
-      color: #FFF;
-      border: 1px solid #A4E8B5;
-      border-radius: 8px;
-      padding: 10px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.86rem;
+    }
+
+    .drawer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-nav-item {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 2px solid var(--border-vintage);
+      background-color: var(--parchment-card);
+      color: var(--text-main);
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: left;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(20, 97, 40, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-nav-item.active {
+      background-color: var(--burgundy);
+      color: #FFF9EE;
+      border-color: var(--gold);
     }
   </style>
 </head>
 <body>
 
   <div class="app-shell">
-    <div class="app-frame"></div>
 
-    <!-- MENU DE NAVEGAÇÃO DEDICADO NO TOPO (Grade fixa sem carrossel, todas as seções visíveis) -->
-    <nav class="top-nav" aria-label="Seções do Cardápio">
-      <div class="nav-grid-row-1">
-        <button class="nav-btn active" data-screen="0" onclick="goToScreen(0)">🏠 Início</button>
-        <button class="nav-btn" data-screen="1" onclick="goToScreen(1)">👑 Especial</button>
-        <button class="nav-btn" data-screen="2" onclick="goToScreen(2)">🍕 Salgadas</button>
-        <button class="nav-btn" data-screen="3" onclick="goToScreen(3)">🍫 Doces</button>
-      </div>
-      <div class="nav-grid-row-2">
-        <button class="nav-btn" data-screen="4" onclick="goToScreen(4)">🔥 Como Assar</button>
-        <button class="nav-btn olive-theme" data-screen="5" onclick="goToScreen(5)">🌿 Por Que Nós?</button>
-        <button class="nav-btn olive-theme" data-screen="6" onclick="goToScreen(6)">📲 Contato</button>
-      </div>
-    </nav>
-
-    <!-- ÁREA DE TELAS FIXAS (SEM ROLAGEM CONTÍNUA) -->
+    <!-- ÁREA DE TELAS COM ROLAGEM VERTICAL FLUIDA -->
     <main class="screens-viewport">
 
-      <!-- TELA 0: BOAS-VINDAS / INÍCIO -->
+      <!-- TELA 0: BOAS-VINDAS & SOBRE A DONA MASSA -->
       <section class="screen active" id="screen-0">
-        <div class="hero-box">
-          <div class="hero-emblem-wrap">
-            <img src="logo-emblema.webp" alt="Dona Massa - Pizzas Artesanais e Congeladas" class="hero-emblem">
+        <div class="welcome-container">
+          <img id="hero-logo-img" alt="Dona Massa - Pizzas Artesanais e Congeladas" class="hero-emblem">
+
+          <div class="welcome-story-card">
+            <h1>Bem-vindo à Dona Massa!</h1>
+            <p>
+              Da nossa família para a sua mesa. Preparamos nossas pizzas de forma 100% artesanal, com massa caseira e ingredientes selecionados, prontas para assar em poucos minutos no conforto da sua casa.
+            </p>
+
+            <div class="about-split">
+              <div class="about-list">
+                <div class="about-item">
+                  <span class="about-icon">🌿</span>
+                  <span>Ingredientes selecionados</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-icon">🥖</span>
+                  <span>Massa caseira artesanal</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-icon" style="color:var(--burgundy);">♥</span>
+                  <span>Feita com carinho familiar</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-icon">🕒</span>
+                  <span>Pronta de 12 a 15 minutos</span>
+                </div>
+              </div>
+              <img id="about-oil-illust" alt="Azeite e Tomates" class="about-oil-img">
+            </div>
           </div>
 
-          <div class="pillars-row">
-            <div class="pillar-col">
-              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <span>FEITO<br>COM AMOR</span>
-            </div>
-            <div class="pillar-col">
-              <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/></svg>
-              <span>INGREDIENTES<br>SELECIONADOS</span>
-            </div>
-            <div class="pillar-col">
-              <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M3 20v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M15 13h2a4 4 0 0 1 4 4v3"/></svg>
-              <span>PARA TODA<br>A FAMÍLIA</span>
+          <div class="delivery-highlight-box">
+            <div class="delivery-highlight-icon">🛵</div>
+            <div class="delivery-highlight-text">
+              <strong>ENTREGAS TODAS AS SEXTAS-FEIRAS</strong>
+              <span>Torres • Morrinhos do Sul • Três Cachoeiras</span>
             </div>
           </div>
 
-          <div class="delivery-ribbon-card">
-            <strong>🛵 ENTREGAS TODAS AS SEXTAS-FEIRAS</strong>
-            <span>Torres • Morrinhos do Sul • Três Cachoeiras</span>
-          </div>
+          <div class="home-actions-title">Escolha uma seção abaixo:</div>
 
-          <div class="welcome-shortcuts">
-            <button class="shortcut-btn primary" onclick="goToScreen(1)">
-              🍕 Iniciar Pedido (Ver Cardápio) →
+          <div class="home-actions-grid">
+            <button type="button" class="home-action-btn primary-burgundy" onclick="goToScreen(1)">
+              <span>🍕 Pizzas Salgadas &amp; Especial</span>
+              <span>→</span>
             </button>
-            <button class="shortcut-btn" onclick="goToScreen(2)">
-              🧀 Pizzas Salgadas
+            <button type="button" class="home-action-btn primary-olive" onclick="goToScreen(2)">
+              <span>🍫 Pizzas Doces</span>
+              <span>→</span>
             </button>
-            <button class="shortcut-btn" onclick="goToScreen(3)">
-              🍫 Pizzas Doces
-            </button>
-            <button class="shortcut-btn" onclick="goToScreen(4)">
-              🔥 Como Assar
-            </button>
-            <button class="shortcut-btn" onclick="goToScreen(6)">
-              📲 WhatsApp / Contato
-            </button>
+            <div class="home-secondary-row">
+              <button type="button" class="home-action-btn secondary-warm" onclick="goToScreen(3)">
+                🔥 Como Assar
+              </button>
+              <button type="button" class="home-action-btn secondary-warm" onclick="goToScreen(4)">
+                📲 Contato / Pedido
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- TELA 1: ESPECIAL DA CASA (DONA MASSA) -->
+      <!-- TELA 1: PIZZAS SALGADAS (COM A ESPECIAL DA CASA DESTACADA NO TOPO + ROLAGEM VERTICAL) -->
       <section class="screen" id="screen-1">
-        <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-          <div class="banner-wrap">
-            <div class="plaque-burgundy">
-              <span class="gold-heart">♥</span> PIZZAS DA CASA <span class="gold-heart">♥</span>
-            </div>
+        <div class="banner-wrap">
+          <div class="ribbon-olive">
+            <span class="gold-heart">🌿</span> PIZZAS SALGADAS <span class="gold-heart">🌿</span>
           </div>
+        </div>
 
-          <div class="especial-showcase" id="especial-card-container">
-            <!-- Renderizado via JS -->
-          </div>
-
-          <div style="text-align:center; font-size:0.86rem; color:var(--text-muted); padding: 4px;">
-            Toque em <strong>+</strong> nos tamanhos desejados para adicionar ao pedido ou avance para ver as <strong>Pizzas Salgadas</strong>.
-          </div>
+        <div class="pizza-cards-list" id="salgadas-list">
+          <!-- Especial da Casa + 15 Pizzas Salgadas renderizadas via JS -->
         </div>
       </section>
 
-      <!-- TELA 2: PIZZAS SALGADAS (Paginação interna 1 a 5 sem rolagem) -->
+      <!-- TELA 2: PIZZAS DOCES (ROLAGEM VERTICAL COMPLETA) -->
       <section class="screen" id="screen-2">
-        <div style="display:flex; flex-direction:column; height:100%;">
-          <div class="banner-wrap">
-            <div class="ribbon-olive">
-              <span class="gold-heart">🌿</span> PIZZAS TRADICIONAIS &amp; SALGADAS <span class="gold-heart">🌿</span>
-            </div>
+        <div class="banner-wrap">
+          <div class="plaque-burgundy">
+            <span class="gold-heart">♥</span> PIZZAS DOCES <span class="gold-heart">♥</span>
           </div>
+        </div>
 
-          <div class="subpage-bar">
-            <span id="salgadas-page-label">Sabores 1–3 de 15</span>
-            <div class="subpage-tabs" id="salgadas-tabs"></div>
-          </div>
-
-          <div class="pizza-cards-list" id="salgadas-list">
-            <!-- Renderizado via JS -->
-          </div>
+        <div class="pizza-cards-list" id="doces-list">
+          <!-- 4 Pizzas Doces renderizadas via JS -->
         </div>
       </section>
 
-      <!-- TELA 3: PIZZAS DOCES (Paginação interna 1 a 2 sem rolagem) -->
+      <!-- TELA 3: COMO ASSAR -->
       <section class="screen" id="screen-3">
-        <div style="display:flex; flex-direction:column; height:100%;">
-          <div class="banner-wrap">
-            <div class="plaque-burgundy">
-              <span class="gold-heart">♥</span> PIZZAS DOCES <span class="gold-heart">♥</span>
-            </div>
+        <div class="banner-wrap">
+          <div class="banner-arched-burgundy">
+            <span>🌿</span> COMO ASSAR <span>🌿</span>
           </div>
+        </div>
 
-          <div class="subpage-bar">
-            <span id="doces-page-label">Sabores 1–2 de 4</span>
-            <div class="subpage-tabs" id="doces-tabs"></div>
+        <div class="steps-card">
+          <div class="step-row">
+            <div class="step-num-badge">1</div>
+            <img id="step-img-1" alt="Passo 1" class="step-illust">
+            <div class="step-desc">Pré-aqueça o forno por 10 minutos.</div>
           </div>
-
-          <div class="pizza-cards-list" id="doces-list">
-            <!-- Renderizado via JS -->
+          <div class="step-row">
+            <div class="step-num-badge">2</div>
+            <img id="step-img-2" alt="Passo 2" class="step-illust">
+            <div class="step-desc">Retire a pizza da embalagem.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-badge">3</div>
+            <img id="step-img-3" alt="Passo 3" class="step-illust">
+            <div class="step-desc">Coloque diretamente na grade ou em uma forma.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-badge">4</div>
+            <img id="step-img-4" alt="Passo 4" class="step-illust">
+            <div class="step-desc">Asse por 12 a 15 minutos ou até o queijo derreter completamente.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-badge">5</div>
+            <img id="step-img-5" alt="Passo 5" class="step-illust">
+            <div class="step-desc">Sirva quentinha e aproveite!</div>
           </div>
         </div>
       </section>
 
-      <!-- TELA 4: COMO ASSAR -->
+      <!-- TELA 4: CONTATO & FINALIZAR PEDIDO -->
       <section class="screen" id="screen-4">
-        <div style="display:flex; flex-direction:column; height:100%;">
-          <div class="banner-wrap">
-            <div class="banner-arched-burgundy">
-              <span>🌿</span> COMO ASSAR <span>🌿</span>
-            </div>
-          </div>
-
-          <div class="steps-container">
-            <div class="step-row">
-              <div class="step-num-badge">1</div>
-              <img src="passo-1.webp" alt="Passo 1" class="step-illust">
-              <div class="step-desc">Pré-aqueça o forno por 10 minutos.</div>
-            </div>
-            <div class="step-row">
-              <div class="step-num-badge">2</div>
-              <img src="passo-2.webp" alt="Passo 2" class="step-illust">
-              <div class="step-desc">Retire a pizza da embalagem.</div>
-            </div>
-            <div class="step-row">
-              <div class="step-num-badge">3</div>
-              <img src="passo-3.webp" alt="Passo 3" class="step-illust">
-              <div class="step-desc">Coloque diretamente na grade ou em uma forma.</div>
-            </div>
-            <div class="step-row">
-              <div class="step-num-badge">4</div>
-              <img src="passo-4.webp" alt="Passo 4" class="step-illust">
-              <div class="step-desc">Asse por 12 a 15 minutos ou até o queijo derreter completamente.</div>
-            </div>
-            <div class="step-row">
-              <div class="step-num-badge">5</div>
-              <img src="passo-5.webp" alt="Passo 5" class="step-illust">
-              <div class="step-desc">Sirva e aproveite!</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TELA 5: POR QUE ESCOLHER A DONA MASSA? -->
-      <section class="screen" id="screen-5">
-        <div style="display:flex; flex-direction:column; height:100%;">
-          <div class="banner-wrap">
-            <div class="banner-arched-olive">
-              <span>POR QUE ESCOLHER</span>
-              <span><span class="gold-heart">♥</span> A DONA MASSA? <span class="gold-heart">♥</span></span>
-            </div>
-          </div>
-
-          <div class="why-card">
-            <div class="why-list">
-              <div class="why-row">
-                <span class="why-icon">🌿</span>
-                <span>Ingredientes selecionados</span>
-              </div>
-              <div class="why-row">
-                <span class="why-icon">🥖</span>
-                <span>Massa artesanal</span>
-              </div>
-              <div class="why-row">
-                <span class="why-icon" style="color:var(--burgundy);">♥</span>
-                <span>Produzida com carinho</span>
-              </div>
-              <div class="why-row">
-                <span class="why-icon">🕒</span>
-                <span>Pronta em minutos</span>
-              </div>
-              <div class="why-row">
-                <span class="why-icon">👨‍👩‍👧‍👦</span>
-                <span>Para toda a família</span>
-              </div>
-            </div>
-            <img src="azeite-tomates.webp" alt="Azeite de Oliva e Tomates Selecionados" class="why-illust-oil">
-          </div>
-
-          <div class="delivery-ribbon-card">
-            <strong>🛵 ENTREGAS TODAS AS SEXTAS-FEIRAS</strong>
-            <span>Torres • Morrinhos do Sul • Três Cachoeiras</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- TELA 6: CONTATO & ENVIAR PEDIDO -->
-      <section class="screen" id="screen-6">
-        <div class="contact-screen-body">
-          <div class="banner-wrap">
+        <div class="checkout-screen-stack">
+          <div class="banner-wrap" style="margin-bottom: 4px;">
             <div class="ribbon-olive">
               <span class="gold-heart">♥</span> PEÇA PELO WHATSAPP <span class="gold-heart">♥</span>
             </div>
@@ -1467,38 +1160,47 @@
 
           <div class="order-summary-card">
             <div class="order-summary-header">
-              <span id="final-summary-title">SEU PEDIDO (0)</span>
-              <div style="display:flex; align-items:center; gap:6px;">
-                <strong id="final-summary-total" style="font-size:0.86rem;">R$ 0,00</strong>
-                <button class="clear-cart-btn" id="clear-cart-btn" onclick="clearCart()" style="display:none;">Limpar</button>
-              </div>
+              <h3 id="final-summary-title">SEU PEDIDO (0)</h3>
+              <button type="button" class="clear-cart-btn" id="clear-cart-btn" onclick="clearCart()" style="display:none;">Limpar Tudo</button>
             </div>
 
-            <div class="summary-items-scroll" id="final-summary-list">
+            <div id="final-summary-list">
               <!-- Itens renderizados via JS -->
             </div>
 
-            <div class="city-selector-row">
-              <label for="delivery-city-select">🛵 Cidade (Sexta):</label>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:2px solid var(--border-vintage); font-size:1.15rem; font-weight:800;">
+              <span>Total do Pedido:</span>
+              <span id="final-summary-total" style="color:var(--burgundy); font-size:1.3rem;">R$ 0,00</span>
+            </div>
+
+            <div class="form-group" style="margin-top: 6px;">
+              <label for="delivery-city-select">🛵 Cidade de Entrega (Obrigatório):</label>
               <select id="delivery-city-select" class="city-select" onchange="saveDeliveryCity(this.value)">
-                <option value="Torres">Torres</option>
-                <option value="Morrinhos do Sul">Morrinhos do Sul</option>
-                <option value="Três Cachoeiras">Três Cachoeiras</option>
+                <option value="">Selecione sua cidade de entrega...</option>
+                <option value="Torres">Torres (Entrega na Sexta-feira)</option>
+                <option value="Morrinhos do Sul">Morrinhos do Sul (Entrega na Sexta-feira)</option>
+                <option value="Três Cachoeiras">Três Cachoeiras (Entrega na Sexta-feira)</option>
               </select>
+              <span class="city-error-msg" id="screen-city-error">⚠️ Por favor, escolha a cidade de entrega acima antes de enviar.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="screen-customer-note">📝 Seu Nome / Observação (Opcional):</label>
+              <input type="text" id="screen-customer-note" class="note-input" placeholder="Ex: João — entregar após as 14h" oninput="saveCustomerNote(this.value)">
             </div>
           </div>
 
-          <div class="whats-contacts-box">
-            <button class="whats-direct-btn" onclick="sendOrderWhatsApp('5551981885658')">
-              <span>🟢 (51) 98188-5658</span>
-              <small>Enviar Pedido</small>
+          <div class="whats-buttons-stack">
+            <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551981885658', 'screen')">
+              <span>🟢 WhatsApp (51) 98188-5658</span>
+              <span>Enviar →</span>
             </button>
-            <button class="whats-direct-btn" onclick="sendOrderWhatsApp('5551998085374')">
-              <span>🟢 (51) 99808-5374</span>
-              <small>Enviar Pedido</small>
+            <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551998085374', 'screen')">
+              <span>🟢 WhatsApp (51) 99808-5374</span>
+              <span>Enviar →</span>
             </button>
-            <a href="https://instagram.com/donamassa.pizzas" target="_blank" rel="noopener" class="insta-row">
-              <span style="color:var(--burgundy);">📸</span> @donamassa.pizzas
+            <a href="https://instagram.com/donamassa.pizzas" target="_blank" rel="noopener" class="insta-card-link">
+              <span>📸 Siga no Instagram: @donamassa.pizzas</span>
             </a>
           </div>
 
@@ -1512,68 +1214,140 @@
 
     </main>
 
-    <!-- BARRA INFERIOR GUIADA + BOTÃO FLUTUANTE DE WHATSAPP -->
+    <!-- RODAPÉ FIXO FLUTUANTE (ÚNICO LOCAL COM BOTÕES DE NAVEGAÇÃO) -->
     <footer class="bottom-dock">
-      <button type="button" class="floating-checkout-bar" id="floating-cart-bar" onclick="openCheckoutModal()">
-        <div class="checkout-left">
-          <span class="checkout-badge" id="cart-count-badge">0</span>
-          <span id="cart-total-label">R$ 0,00</span>
+      <button type="button" class="floating-whatsapp-cta" id="floating-cart-bar" onclick="openCheckoutModal()">
+        <div class="floating-whatsapp-left">
+          <span class="floating-whatsapp-badge" id="cart-count-badge">0 itens selecionados</span>
+          <span class="floating-whatsapp-total" id="cart-total-label">R$ 0,00</span>
         </div>
-        <div class="checkout-action">
-          <span>Enviar Pedido via WhatsApp</span>
+        <div class="floating-whatsapp-btn-label">
+          <span>Enviar via WhatsApp</span>
           <span>📲</span>
         </div>
       </button>
 
-      <div class="step-nav-row">
-        <button class="step-btn" id="btn-prev" onclick="stepNavigate(-1)">← Anterior</button>
-        <span class="step-indicator" id="step-counter">Tela 1 / 7</span>
-        <button class="step-btn next" id="btn-next" onclick="stepNavigate(1)">Próximo →</button>
+      <div class="footer-controls-row">
+        <button type="button" class="footer-menu-btn" onclick="openSectionsDrawer()">
+          <span>☰</span>
+          <span>Seções</span>
+        </button>
+        <button type="button" class="footer-nav-btn" id="btn-prev" onclick="stepNavigate(-1)">
+          ← Voltar
+        </button>
+        <button type="button" class="footer-nav-btn next-primary" id="btn-next" onclick="stepNavigate(1)">
+          Pizzas Salgadas →
+        </button>
       </div>
     </footer>
 
+    <!-- GAVETA DO MENU SANDUÍCHE (☰ SEÇÕES) -->
+    <div class="backdrop-overlay" id="sections-drawer" onclick="if(event.target === this) closeSectionsDrawer()">
+      <div class="drawer-sheet">
+        <div class="drawer-header">
+          <h3>☰ Navegar para Seção</h3>
+          <button type="button" class="close-sheet-btn" onclick="closeSectionsDrawer()">×</button>
+        </div>
+        <div class="drawer-nav-list">
+          <button type="button" class="drawer-nav-item active" data-drawer-screen="0" onclick="selectDrawerScreen(0)">
+            <span>🏠 Início &amp; Boas-vindas</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="drawer-nav-item" data-drawer-screen="1" onclick="selectDrawerScreen(1)">
+            <span>🍕 Pizzas Salgadas &amp; Especial</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="drawer-nav-item" data-drawer-screen="2" onclick="selectDrawerScreen(2)">
+            <span>🍫 Pizzas Doces</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="drawer-nav-item" data-drawer-screen="3" onclick="selectDrawerScreen(3)">
+            <span>🔥 Instruções: Como Assar</span>
+            <span>→</span>
+          </button>
+          <button type="button" class="drawer-nav-item" data-drawer-screen="4" onclick="selectDrawerScreen(4)">
+            <span>📲 Finalizar Pedido / Contato</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- MODAL DE REVISÃO E ENVIO RÁPIDO VIA WHATSAPP -->
-    <div class="modal-backdrop" id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()">
-      <div class="modal-card">
-        <div class="modal-header">
+    <div class="backdrop-overlay" id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()">
+      <div class="drawer-sheet">
+        <div class="drawer-header">
           <h3>📲 Enviar Pedido via WhatsApp</h3>
-          <button class="close-modal" onclick="closeCheckoutModal()" aria-label="Fechar">×</button>
+          <button type="button" class="close-sheet-btn" onclick="closeCheckoutModal()">×</button>
         </div>
 
-        <div class="modal-cart-items" id="modal-cart-list"></div>
+        <div id="modal-cart-list" style="max-height: 210px; overflow-y: auto; background: var(--parchment-card); border: 1.5px solid var(--border-vintage); border-radius: 10px; padding: 10px;"></div>
 
-        <div class="modal-field-group">
-          <label for="modal-city-select">🛵 Cidade de Entrega (Sextas-feiras):</label>
-          <select id="modal-city-select" class="modal-input" onchange="saveDeliveryCity(this.value)">
-            <option value="Torres">Torres</option>
-            <option value="Morrinhos do Sul">Morrinhos do Sul</option>
-            <option value="Três Cachoeiras">Três Cachoeiras</option>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:800; font-size:1.15rem; padding: 4px 2px;">
+          <span>Valor Total:</span>
+          <span id="modal-total-val" style="color:var(--burgundy); font-size:1.3rem;">R$ 0,00</span>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-city-select">🛵 Cidade de Entrega (Obrigatório):</label>
+          <select id="modal-city-select" class="city-select" onchange="saveDeliveryCity(this.value)">
+            <option value="">Selecione sua cidade de entrega...</option>
+            <option value="Torres">Torres (Sexta-feira)</option>
+            <option value="Morrinhos do Sul">Morrinhos do Sul (Sexta-feira)</option>
+            <option value="Três Cachoeiras">Três Cachoeiras (Sexta-feira)</option>
           </select>
+          <span class="city-error-msg" id="modal-city-error">⚠️ Escolha sua cidade de entrega acima para continuar.</span>
         </div>
 
-        <div class="modal-field-group">
+        <div class="form-group">
           <label for="modal-customer-note">📝 Seu Nome ou Observação (Opcional):</label>
-          <input type="text" id="modal-customer-note" class="modal-input" placeholder="Ex: Maria - Entregar à tarde / Sem cebola" oninput="saveCustomerNote(this.value)">
+          <input type="text" id="modal-customer-note" class="note-input" placeholder="Ex: Maria — entregar à tarde" oninput="saveCustomerNote(this.value)">
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:800; font-size:1.05rem; border-top:1px solid var(--border-vintage); padding-top:6px;">
-          <span>Total do Pedido:</span>
-          <span id="modal-total-val" style="color:var(--burgundy);">R$ 0,00</span>
+        <div class="whats-buttons-stack">
+          <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551981885658', 'modal')">
+            <span>🟢 Enviar para (51) 98188-5658</span>
+            <span>📲</span>
+          </button>
+          <button type="button" class="whats-send-large-btn" onclick="sendOrderWhatsApp('5551998085374', 'modal')">
+            <span>🟢 Enviar para (51) 99808-5374</span>
+            <span>📲</span>
+          </button>
         </div>
-
-        <button class="modal-send-btn" onclick="sendOrderWhatsApp('5551981885658')">
-          🟢 Enviar para Whats (51) 98188-5658
-        </button>
-        <button class="modal-send-btn" onclick="sendOrderWhatsApp('5551998085374')">
-          🟢 Enviar para Whats (51) 99808-5374
-        </button>
       </div>
     </div>
 
   </div>
 
   <script>
-    // Gerador de ilustrações SVG artesanais (estilo forno a lenha) para sabores sem .webp individual
+    // Assets Originais (com fallback automático para arquivo local ou Data URI)
+    const ASSETS = {
+      logo: "logo-emblema.webp",
+      oil: "azeite-tomates.webp",
+      step1: "passo-1.webp",
+      step2: "passo-2.webp",
+      step3: "passo-3.webp",
+      step4: "passo-4.webp",
+      step5: "passo-5.webp",
+      especial: "pizza-especial.webp",
+      calabresa: "pizza-calabresa.webp",
+      calabresa_cebola: "pizza-calabresa-cebola.webp",
+      bacon: "pizza-bacon.webp",
+      frango_catupiry: "pizza-frango-catupiry.webp",
+      coracao: "pizza-coracao.webp",
+      estrogonofe_frango: "pizza-estrogonofe-frango.webp",
+      estrogonofe_carne: "pizza-estrogonofe-carne.webp"
+    };
+
+    document.getElementById("hero-logo-img").src = ASSETS.logo;
+    document.getElementById("about-oil-illust").src = ASSETS.oil;
+    document.getElementById("step-img-1").src = ASSETS.step1;
+    document.getElementById("step-img-2").src = ASSETS.step2;
+    document.getElementById("step-img-3").src = ASSETS.step3;
+    document.getElementById("step-img-4").src = ASSETS.step4;
+    document.getElementById("step-img-5").src = ASSETS.step5;
+
+    // Gerador de ilustrações SVG artesanais para os sabores adicionais e doces
     function createArtisanPizzaSvg(type) {
       let toppings = '';
       let baseCheese = '#F5C469';
@@ -1650,8 +1424,6 @@
             <circle cx="46" cy="46" r="3.5" fill="#C88328"/><circle cx="47" cy="46" r="2" fill="#F2C675"/>
             <circle cx="64" cy="47" r="3.5" fill="#C88328"/><circle cx="65" cy="47" r="2" fill="#F2C675"/>
             <circle cx="56" cy="40" r="3.5" fill="#C88328"/><circle cx="57" cy="40" r="2" fill="#F2C675"/>
-            <circle cx="78" cy="45" r="3" fill="#C88328"/>
-            <circle cx="36" cy="41" r="3" fill="#C88328"/>
           `;
           break;
         case 'vegetariana':
@@ -1664,7 +1436,6 @@
             <ellipse cx="77" cy="42" rx="6" ry="4" fill="#C92A1D"/>
             <circle cx="58" cy="43" r="3" fill="#FFF8E7" stroke="#D4C29A" stroke-width="1"/>
             <circle cx="36" cy="41" r="3" fill="#FFF8E7" stroke="#D4C29A" stroke-width="1"/>
-            <circle cx="50" cy="29" r="2" fill="#FFD54F"/><circle cx="72" cy="46" r="2" fill="#FFD54F"/><circle cx="63" cy="38" r="2" fill="#66BB6A"/>
           `;
           break;
         case 'chocolate_mms':
@@ -1713,72 +1484,69 @@
         <ellipse cx="60" cy="45" rx="54" ry="33" fill="#2A1205" opacity="0.35"/>
         <ellipse cx="60" cy="43" rx="53" ry="32" fill="#5C2C0C"/>
         <ellipse cx="60" cy="40" rx="51" ry="30" fill="#DFA04E" stroke="#7A3E12" stroke-width="2"/>
-        <circle cx="15" cy="38" r="2.5" fill="#4A2008"/><circle cx="28" cy="21" r="2.2" fill="#4A2008"/>
-        <circle cx="92" cy="22" r="2.5" fill="#4A2008"/><circle cx="105" cy="39" r="2.3" fill="#4A2008"/>
-        <circle cx="35" cy="63" r="2.5" fill="#4A2008"/><circle cx="84" cy="63" r="2.4" fill="#4A2008"/>
         <ellipse cx="60" cy="39" rx="43" ry="24" fill="${baseCheese}"/>
         ${toppings}
       </svg>`;
       return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
     }
 
-    // Catálogo Completo com os Preços Estritos (Grande 35cm / Broto 20cm / Mini 14cm)
-    const ESPECIAL_ITEM = {
-      id: "dona_massa",
-      name: "Dona Massa",
-      desc: "Frango desfiado, queijo mussarela, calabresa, bacon, cheddar, milho, ervilha, palmito e orégano.",
-      img: "pizza-especial.webp",
-      prices: { grande: 50.00, broto: 25.00, mini: 15.00 }
-    };
-
+    // Catálogo Completo (Especial no Topo das Salgadas + 15 Salgadas + 4 Doces)
     const SALGADAS_ITEMS = [
+      {
+        id: "dona_massa",
+        name: "Dona Massa",
+        desc: "Frango desfiado, queijo mussarela, calabresa, bacon, cheddar, milho, ervilha, palmito e orégano.",
+        img: ASSETS.especial,
+        isEspecial: true,
+        prices: { grande: 50.00, broto: 25.00, mini: 15.00 }
+      },
       {
         id: "calabresa",
         name: "Calabresa",
         desc: "Calabresa fatiada, queijo mussarela e orégano.",
-        img: "pizza-calabresa.webp",
+        img: ASSETS.calabresa,
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "calabresa_cebola",
         name: "Calabresa com Cebola",
-        desc: "Calabresa moída, queijo mussarela, cebola em rodelas e orégano.",
-        img: "pizza-calabresa-cebola.webp",
+        desc: "Calabresa moída, queijo mussarela, cebola e orégano.",
+        img: ASSETS.calabresa_cebola,
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "bacon",
         name: "Bacon",
         desc: "Alho e óleo, bacon crocante, queijo mussarela e orégano.",
-        img: "pizza-bacon.webp",
+        img: ASSETS.bacon,
         prices: { grande: 47.00, broto: 25.00, mini: 15.00 }
       },
       {
         id: "frango_catupiry",
         name: "Frango com Catupiry",
         desc: "Frango desfiado, queijo mussarela, catupiry e orégano.",
-        img: "pizza-frango-catupiry.webp",
+        img: ASSETS.frango_catupiry,
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "coracao",
         name: "Coração",
-        desc: "Coração de frango temperado, queijo mussarela e orégano.",
-        img: "pizza-coracao.webp",
+        desc: "Coração temperado, queijo mussarela e orégano.",
+        img: ASSETS.coracao,
         prices: { grande: 47.00, broto: 25.00, mini: 15.00 }
       },
       {
         id: "estrogonofe_frango",
         name: "Estrogonofe de Frango",
         desc: "Estrogonofe de frango, queijo mussarela, orégano e batata palha.",
-        img: "pizza-estrogonofe-frango.webp",
+        img: ASSETS.estrogonofe_frango,
         prices: { grande: 50.00, broto: 27.00, mini: 15.00 }
       },
       {
         id: "estrogonofe_carne",
         name: "Estrogonofe de Carne",
         desc: "Estrogonofe de carne, queijo mussarela, orégano e batata palha.",
-        img: "pizza-estrogonofe-carne.webp",
+        img: ASSETS.estrogonofe_carne,
         prices: { grande: 50.00, broto: 27.00, mini: 15.00 }
       },
       {
@@ -1789,9 +1557,16 @@
         prices: { grande: 50.00, broto: 27.00, mini: 15.00 }
       },
       {
+        id: "brocolis_bacon",
+        name: "Brócolis com Bacon",
+        desc: "Brócolis selecionado, bacon crocante, queijo mussarela e orégano.",
+        img: createArtisanPizzaSvg("brocolis_bacon"),
+        prices: { grande: 47.00, broto: 22.00, mini: 12.00 }
+      },
+      {
         id: "lombo_canadense",
         name: "Lombo Canadense",
-        desc: "Lombo canadense defumado, queijo mussarela, requeijão e orégano.",
+        desc: "Lombo canadense, queijo mussarela e orégano.",
         img: createArtisanPizzaSvg("lombo_canadense"),
         prices: { grande: 50.00, broto: 27.00, mini: 15.00 }
       },
@@ -1803,38 +1578,31 @@
         prices: { grande: 50.00, broto: 27.00, mini: 15.00 }
       },
       {
-        id: "brocolis_bacon",
-        name: "Brócolis com Bacon",
-        desc: "Brócolis selecionado, cubos de bacon crocante, queijo mussarela e orégano.",
-        img: createArtisanPizzaSvg("brocolis_bacon"),
-        prices: { grande: 47.00, broto: 22.00, mini: 12.00 }
-      },
-      {
-        id: "marguerita",
-        name: "Marguerita",
-        desc: "Queijo mussarela, rodelas de tomate fresco, manjericão e orégano.",
-        img: createArtisanPizzaSvg("marguerita"),
-        prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
-      },
-      {
         id: "quatro_queijos",
         name: "4 Queijos",
-        desc: "Mussarela, provolone, parmesão, requeijão cremoso e orégano.",
+        desc: "Seleção especial de 4 queijos cremosos e orégano.",
         img: createArtisanPizzaSvg("quatro_queijos"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
-        id: "alho_oleo",
-        name: "Alho e Óleo",
-        desc: "Queijo mussarela, alho dourado no azeite de oliva e orégano.",
-        img: createArtisanPizzaSvg("alho_oleo"),
+        id: "marguerita",
+        name: "Marguerita",
+        desc: "Queijo mussarela, rodelas de tomate, manjericão e orégano.",
+        img: createArtisanPizzaSvg("marguerita"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "vegetariana",
         name: "Vegetariana",
-        desc: "Mussarela, brócolis, palmito, milho, ervilha, tomate e orégano.",
+        desc: "Mix de vegetais selecionados, queijo mussarela e orégano.",
         img: createArtisanPizzaSvg("vegetariana"),
+        prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
+      },
+      {
+        id: "alho_oleo",
+        name: "Alho e Óleo",
+        desc: "Alho dourado no azeite, queijo mussarela e orégano.",
+        img: createArtisanPizzaSvg("alho_oleo"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       }
     ];
@@ -1843,36 +1611,36 @@
       {
         id: "chocolate_mms",
         name: "Chocolate Preto M&Ms",
-        desc: "Cobertura generosa de chocolate preto cremoso e confeitos M&Ms.",
+        desc: "Cobertura generosa de chocolate preto com confeitos M&Ms.",
         img: createArtisanPizzaSvg("chocolate_mms"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "prestigio",
         name: "Prestígio",
-        desc: "Chocolate preto cremoso coberto com coco ralado selecionado e leite condensado.",
+        desc: "Chocolate preto cremoso coberto com coco ralado selecionado.",
         img: createArtisanPizzaSvg("prestigio"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "charge",
         name: "Charge",
-        desc: "Chocolate preto cremoso, caramelo/doce de leite e amendoim torrado.",
+        desc: "Chocolate preto, caramelo e amendoim crocante.",
         img: createArtisanPizzaSvg("charge"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       },
       {
         id: "banana_canela",
         name: "Banana com Canela",
-        desc: "Mussarela, fatias de banana selecionada, leite condensado, açúcar e canela.",
+        desc: "Fatias de banana selecionada, leite condensado, açúcar e canela.",
         img: createArtisanPizzaSvg("banana_canela"),
         prices: { grande: 45.00, broto: 20.00, mini: 12.00 }
       }
     ];
 
-    const ALL_ITEMS = [ESPECIAL_ITEM, ...SALGADAS_ITEMS, ...DOCES_ITEMS];
+    const ALL_ITEMS = [...SALGADAS_ITEMS, ...DOCES_ITEMS];
 
-    // Ordem dos Tamanhos conforme a tabela: Grande 35cm | Broto 20cm | Mini 14cm
+    // Ordem das 3 linhas de tamanhos: Grande (35cm), Broto (20cm), Mini (14cm)
     const SIZE_ORDER = ["grande", "broto", "mini"];
     const SIZE_LABELS = {
       grande: { name: "Grande", cm: "35cm" },
@@ -1880,23 +1648,14 @@
       mini:   { name: "Mini",   cm: "14cm" }
     };
 
-    // Estado da Navegação e Subpáginas
+    // Estado e Cache (Sem cidade padrão)
+    const STORAGE_KEY_CART = "donaMassa_cart_v2";
+    const STORAGE_KEY_CITY = "donaMassa_city_v2";
+    const STORAGE_KEY_NOTE = "donaMassa_note_v2";
+
     let currentScreen = 0;
-    let salgadasSubPage = 0;
-    const SALGADAS_PER_PAGE = 3;
-    const totalSalgadasPages = Math.ceil(SALGADAS_ITEMS.length / SALGADAS_PER_PAGE);
-
-    let docesSubPage = 0;
-    const DOCES_PER_PAGE = 2;
-    const totalDocesPages = Math.ceil(DOCES_ITEMS.length / DOCES_PER_PAGE);
-
-    // Estado Persistente em Cache (localStorage)
-    const STORAGE_KEY_CART = "donaMassa_cart_v1";
-    const STORAGE_KEY_CITY = "donaMassa_city_v1";
-    const STORAGE_KEY_NOTE = "donaMassa_note_v1";
-
     let cart = {};
-    let selectedCity = "Torres";
+    let selectedCity = "";
     let customerNote = "";
 
     function loadCache() {
@@ -1912,6 +1671,7 @@
       }
       document.getElementById("delivery-city-select").value = selectedCity;
       document.getElementById("modal-city-select").value = selectedCity;
+      document.getElementById("screen-customer-note").value = customerNote;
       document.getElementById("modal-customer-note").value = customerNote;
     }
 
@@ -1925,6 +1685,14 @@
       selectedCity = city;
       document.getElementById("delivery-city-select").value = city;
       document.getElementById("modal-city-select").value = city;
+
+      if (city) {
+        document.getElementById("delivery-city-select").classList.remove("error-border");
+        document.getElementById("modal-city-select").classList.remove("error-border");
+        document.getElementById("screen-city-error").classList.remove("visible");
+        document.getElementById("modal-city-error").classList.remove("visible");
+      }
+
       try {
         localStorage.setItem(STORAGE_KEY_CITY, city);
       } catch (e) {}
@@ -1932,6 +1700,8 @@
 
     function saveCustomerNote(note) {
       customerNote = note;
+      document.getElementById("screen-customer-note").value = note;
+      document.getElementById("modal-customer-note").value = note;
       try {
         localStorage.setItem(STORAGE_KEY_NOTE, note);
       } catch (e) {}
@@ -1963,116 +1733,43 @@
       renderAll();
     }
 
-    // Renderiza a Tela 1: Especial da Casa (Dona Massa)
-    function renderEspecial() {
-      const container = document.getElementById("especial-card-container");
-      const item = ESPECIAL_ITEM;
-      const sizesHtml = SIZE_ORDER.map(sz => {
-        const q = getQty(item.id, sz);
-        return `
-          <div class="size-box ${q > 0 ? 'has-qty' : ''}">
-            <span class="size-label">${SIZE_LABELS[sz].name}</span>
-            <span class="size-cm">${SIZE_LABELS[sz].cm}</span>
-            <span class="price-pill-burgundy">${formatBRL(item.prices[sz])}</span>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('${item.id}', '${sz}', -1)" aria-label="Remover">-</button>
-              <span class="qty-val">${q}</span>
-              <button class="qty-btn plus" onclick="updateQty('${item.id}', '${sz}', 1)" aria-label="Adicionar">+</button>
-            </div>
-          </div>
-        `;
-      }).join("");
-
-      container.innerHTML = `
-        <div class="especial-top">
-          <div class="especial-info">
-            <span class="especial-badge">👑 ESPECIALIDADE DA CASA</span>
-            <div class="especial-title">${item.name}</div>
-            <p class="especial-desc">${item.desc}</p>
-          </div>
-          <div class="especial-img-frame">
-            <img src="${item.img}" alt="${item.name}" class="especial-img">
-          </div>
-        </div>
-        <div class="size-selectors-grid">
-          ${sizesHtml}
-        </div>
-      `;
-    }
-
-    // Renderiza um Card de Pizza (Salgada ou Doce)
+    // Renderiza cada Card de Pizza com os 3 Tamanhos em 3 Linhas Horizontais Legíveis
     function renderPizzaCard(item) {
-      const sizesHtml = SIZE_ORDER.map(sz => {
+      const rowsHtml = SIZE_ORDER.map(sz => {
         const q = getQty(item.id, sz);
         return `
-          <div class="mini-size-cell ${q > 0 ? 'has-qty' : ''}">
-            <div class="mini-size-info">
-              <small>${SIZE_LABELS[sz].name} ${SIZE_LABELS[sz].cm}</small>
-              <strong>${formatBRL(item.prices[sz])}</strong>
+          <div class="size-row ${q > 0 ? 'has-qty' : ''}">
+            <div class="size-row-left">
+              <span class="size-row-title">${SIZE_LABELS[sz].name}</span>
+              <span class="size-row-cm">(${SIZE_LABELS[sz].cm})</span>
             </div>
-            <div class="mini-qty-ctrl">
-              <button class="mini-btn" onclick="updateQty('${item.id}', '${sz}', -1)" aria-label="Diminuir">-</button>
-              <span class="mini-val">${q}</span>
-              <button class="mini-btn plus" onclick="updateQty('${item.id}', '${sz}', 1)" aria-label="Aumentar">+</button>
+            <div class="size-row-right">
+              <span class="size-row-price">${formatBRL(item.prices[sz])}</span>
+              <div class="qty-controls">
+                <button type="button" class="qty-btn" onclick="updateQty('${item.id}', '${sz}', -1)" aria-label="Diminuir">-</button>
+                <span class="qty-val">${q}</span>
+                <button type="button" class="qty-btn plus" onclick="updateQty('${item.id}', '${sz}', 1)" aria-label="Adicionar">+</button>
+              </div>
             </div>
           </div>
         `;
       }).join("");
 
       return `
-        <article class="pizza-card">
+        <article class="pizza-card ${item.isEspecial ? 'featured-especial' : ''}">
+          ${item.isEspecial ? `<div class="especial-crown-Ribbon">👑 ESPECIAL DA CASA</div>` : ''}
           <div class="pizza-card-head">
             <img src="${item.img}" alt="${item.name}" class="pizza-thumb">
             <div class="pizza-meta">
-              <div class="pizza-name">${item.name}</div>
-              <div class="pizza-ingredients">${item.desc}</div>
+              <h2 class="pizza-name">${item.name}</h2>
+              <p class="pizza-ingredients">${item.desc}</p>
             </div>
           </div>
-          <div class="pizza-sizes-strip">
-            ${sizesHtml}
+          <div class="pizza-sizes-rows">
+            ${rowsHtml}
           </div>
         </article>
       `;
-    }
-
-    function renderSalgadas() {
-      const start = salgadasSubPage * SALGADAS_PER_PAGE;
-      const slice = SALGADAS_ITEMS.slice(start, start + SALGADAS_PER_PAGE);
-      document.getElementById("salgadas-list").innerHTML = slice.map(renderPizzaCard).join("");
-      document.getElementById("salgadas-page-label").textContent =
-        `Sabores ${start + 1}–${Math.min(start + SALGADAS_PER_PAGE, SALGADAS_ITEMS.length)} de ${SALGADAS_ITEMS.length}`;
-
-      let tabsHtml = "";
-      for (let i = 0; i < totalSalgadasPages; i++) {
-        tabsHtml += `<button class="subpage-tab ${i === salgadasSubPage ? 'active' : ''}" onclick="setSalgadasPage(${i})">${i + 1}</button>`;
-      }
-      document.getElementById("salgadas-tabs").innerHTML = tabsHtml;
-    }
-
-    function setSalgadasPage(p) {
-      salgadasSubPage = p;
-      renderSalgadas();
-      updateBottomNavLabels();
-    }
-
-    function renderDoces() {
-      const start = docesSubPage * DOCES_PER_PAGE;
-      const slice = DOCES_ITEMS.slice(start, start + DOCES_PER_PAGE);
-      document.getElementById("doces-list").innerHTML = slice.map(renderPizzaCard).join("");
-      document.getElementById("doces-page-label").textContent =
-        `Sabores ${start + 1}–${Math.min(start + DOCES_PER_PAGE, DOCES_ITEMS.length)} de ${DOCES_ITEMS.length}`;
-
-      let tabsHtml = "";
-      for (let i = 0; i < totalDocesPages; i++) {
-        tabsHtml += `<button class="subpage-tab ${i === docesSubPage ? 'active' : ''}" onclick="setDocesPage(${i})">${i + 1}</button>`;
-      }
-      document.getElementById("doces-tabs").innerHTML = tabsHtml;
-    }
-
-    function setDocesPage(p) {
-      docesSubPage = p;
-      renderDoces();
-      updateBottomNavLabels();
     }
 
     function getCartSummaryData() {
@@ -2109,8 +1806,8 @@
 
       if (totalItems > 0) {
         floatingBar.classList.add("visible");
-        countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
-        totalLabel.textContent = formatBRL(totalPrice);
+        countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'pizza selecionada' : 'pizzas selecionadas'}`;
+        totalLabel.textContent = `Total: ${formatBRL(totalPrice)}`;
       } else {
         floatingBar.classList.remove("visible");
       }
@@ -2122,134 +1819,97 @@
       const modalList = document.getElementById("modal-cart-list");
       const modalTotal = document.getElementById("modal-total-val");
 
-      finalTitle.textContent = `SEU PEDIDO (${totalItems})`;
+      finalTitle.textContent = `ITENS DO PEDIDO (${totalItems})`;
       finalTotal.textContent = formatBRL(totalPrice);
       modalTotal.textContent = formatBRL(totalPrice);
       clearBtn.style.display = totalItems > 0 ? "inline-block" : "none";
 
       if (lines.length === 0) {
         finalList.innerHTML = `
-          <p style="font-size:0.84rem; color:var(--text-muted); padding: 4px 0;">
-            Nenhuma pizza selecionada ainda. Use os botões <strong>+</strong> nas seções <strong>Especial</strong>, <strong>Salgadas</strong> ou <strong>Doces</strong>, ou clique abaixo para falar no WhatsApp.
+          <p style="font-size:0.98rem; color:var(--text-muted); padding: 8px 0;">
+            Você ainda não selecionou nenhuma pizza. Toque em <strong>Pizzas Salgadas</strong> ou <strong>Pizzas Doces</strong> para escolher seus sabores!
           </p>
         `;
-        modalList.innerHTML = `<p style="text-align:center; color:var(--text-muted); font-size:0.9rem;">Nenhuma pizza selecionada.</p>`;
+        modalList.innerHTML = `<p style="text-align:center; color:var(--text-muted); font-size:0.98rem;">Nenhuma pizza selecionada.</p>`;
       } else {
-        const interactiveRows = lines.map(l => `
+        const rowsHtml = lines.map(l => `
           <div class="summary-item">
-            <div style="flex:1; min-width:0;">
-              <strong>${l.name}</strong> <small style="color:var(--text-muted);">(${l.sizeLabel})</small>
-              <div style="font-size:0.76rem; color:var(--burgundy); font-weight:700;">${formatBRL(l.sub)}</div>
+            <div class="summary-item-info">
+              <strong>${l.name}</strong>
+              <span>Tamanho: ${l.sizeLabel} — ${formatBRL(l.sub)}</span>
             </div>
-            <div class="mini-qty-ctrl">
-              <button class="mini-btn" onclick="updateQty('${l.itemId}', '${l.sizeKey}', -1)">-</button>
-              <span class="mini-val">${l.qty}</span>
-              <button class="mini-btn plus" onclick="updateQty('${l.itemId}', '${l.sizeKey}', 1)">+</button>
+            <div class="qty-controls">
+              <button type="button" class="qty-btn" style="width:32px; height:32px; font-size:1.1rem;" onclick="updateQty('${l.itemId}', '${l.sizeKey}', -1)">-</button>
+              <span class="qty-val">${l.qty}</span>
+              <button type="button" class="qty-btn plus" style="width:32px; height:32px; font-size:1.1rem;" onclick="updateQty('${l.itemId}', '${l.sizeKey}', 1)">+</button>
             </div>
           </div>
         `).join("");
 
-        finalList.innerHTML = interactiveRows;
-        modalList.innerHTML = interactiveRows;
+        finalList.innerHTML = rowsHtml;
+        modalList.innerHTML = rowsHtml;
       }
     }
 
     function renderAll() {
-      renderEspecial();
-      renderSalgadas();
-      renderDoces();
+      document.getElementById("salgadas-list").innerHTML = SALGADAS_ITEMS.map(renderPizzaCard).join("");
+      document.getElementById("doces-list").innerHTML = DOCES_ITEMS.map(renderPizzaCard).join("");
       renderCartState();
     }
 
-    function updateBottomNavLabels() {
+    function updateFooterButtons() {
       document.getElementById("btn-prev").disabled = (currentScreen === 0);
       const nextBtn = document.getElementById("btn-next");
+      const nextLabels = [
+        "Pizzas Salgadas →",
+        "Pizzas Doces →",
+        "Como Assar →",
+        "Finalizar Pedido →",
+        "📲 Enviar Pedido"
+      ];
+      nextBtn.textContent = nextLabels[currentScreen];
 
-      if (currentScreen === 6) {
-        nextBtn.textContent = "📲 Enviar Pedido";
-      } else if (currentScreen === 2 && salgadasSubPage < totalSalgadasPages - 1) {
-        nextBtn.textContent = `Mais Salgadas (${salgadasSubPage + 2}/${totalSalgadasPages}) →`;
-      } else if (currentScreen === 3 && docesSubPage < totalDocesPages - 1) {
-        nextBtn.textContent = `Mais Doces (${docesSubPage + 2}/${totalDocesPages}) →`;
-      } else {
-        const labels = [
-          "Especial da Casa →",
-          "Pizzas Salgadas →",
-          "Pizzas Doces →",
-          "Como Assar →",
-          "Por Que a Dona Massa →",
-          "Contato / Finalizar →",
-          "📲 Enviar Pedido"
-        ];
-        nextBtn.textContent = labels[currentScreen];
-      }
-      document.getElementById("step-counter").textContent = `Tela ${currentScreen + 1} / 7`;
+      document.querySelectorAll(".drawer-nav-item").forEach((item, idx) => {
+        item.classList.toggle("active", idx === currentScreen);
+      });
     }
 
     function goToScreen(index) {
-      currentScreen = Math.max(0, Math.min(6, index));
+      currentScreen = Math.max(0, Math.min(4, index));
       document.querySelectorAll(".screen").forEach((el, idx) => {
         el.classList.toggle("active", idx === currentScreen);
+        if (idx === currentScreen) {
+          el.scrollTop = 0;
+        }
       });
-      document.querySelectorAll(".nav-btn").forEach((btn, idx) => {
-        btn.classList.toggle("active", idx === currentScreen);
-      });
-      updateBottomNavLabels();
+      updateFooterButtons();
     }
 
     function stepNavigate(dir) {
-      // Percorre as subpáginas de Pizzas Salgadas antes de mudar de tela
-      if (currentScreen === 2) {
-        if (dir === 1 && salgadasSubPage < totalSalgadasPages - 1) {
-          salgadasSubPage++;
-          renderSalgadas();
-          updateBottomNavLabels();
-          return;
-        }
-        if (dir === -1 && salgadasSubPage > 0) {
-          salgadasSubPage--;
-          renderSalgadas();
-          updateBottomNavLabels();
-          return;
-        }
-      }
-
-      // Percorre as subpáginas de Pizzas Doces antes de mudar de tela
-      if (currentScreen === 3) {
-        if (dir === 1 && docesSubPage < totalDocesPages - 1) {
-          docesSubPage++;
-          renderDoces();
-          updateBottomNavLabels();
-          return;
-        }
-        if (dir === -1 && docesSubPage > 0) {
-          docesSubPage--;
-          renderDoces();
-          updateBottomNavLabels();
-          return;
-        }
-      }
-
-      if (currentScreen === 6 && dir === 1) {
+      if (currentScreen === 4 && dir === 1) {
         openCheckoutModal();
         return;
       }
+      goToScreen(currentScreen + dir);
+    }
 
-      const target = currentScreen + dir;
-      if (target === 2 && dir === 1) salgadasSubPage = 0;
-      if (target === 2 && dir === -1) salgadasSubPage = totalSalgadasPages - 1;
-      if (target === 3 && dir === 1) docesSubPage = 0;
-      if (target === 3 && dir === -1) docesSubPage = totalDocesPages - 1;
+    function openSectionsDrawer() {
+      document.getElementById("sections-drawer").classList.add("open");
+    }
 
-      renderSalgadas();
-      renderDoces();
-      goToScreen(target);
+    function closeSectionsDrawer() {
+      document.getElementById("sections-drawer").classList.remove("open");
+    }
+
+    function selectDrawerScreen(index) {
+      closeSectionsDrawer();
+      goToScreen(index);
     }
 
     function openCheckoutModal() {
       const { totalItems } = getCartSummaryData();
       if (totalItems === 0) {
-        goToScreen(6);
+        goToScreen(4);
         return;
       }
       document.getElementById("checkout-modal").classList.add("open");
@@ -2259,8 +1919,24 @@
       document.getElementById("checkout-modal").classList.remove("open");
     }
 
-    function sendOrderWhatsApp(phone) {
+    function sendOrderWhatsApp(phone, origin) {
       const { totalItems, totalPrice, lines } = getCartSummaryData();
+
+      // Obriga o cliente a escolher uma cidade no fluxo antes de disparar o link
+      if (!selectedCity || selectedCity.trim() === "") {
+        const selectEl = origin === "modal"
+          ? document.getElementById("modal-city-select")
+          : document.getElementById("delivery-city-select");
+        const errorEl = origin === "modal"
+          ? document.getElementById("modal-city-error")
+          : document.getElementById("screen-city-error");
+
+        selectEl.classList.add("error-border");
+        errorEl.classList.add("visible");
+        selectEl.focus();
+        return;
+      }
+
       let msg = "Olá! Gostaria de fazer um pedido na *Dona Massa — Pizzas Artesanais & Congeladas* 🍕:\n\n";
 
       if (totalItems > 0) {
@@ -2273,14 +1949,17 @@
           msg += `📝 *Cliente / Obs:* ${customerNote.trim()}\n`;
         }
       } else {
-        msg = `Olá! Gostaria de fazer uma encomenda de pizzas da *Dona Massa* 🍕 (Entrega em ${selectedCity})!`;
+        msg = `Olá! Gostaria de fazer uma encomenda de pizzas da *Dona Massa* 🍕 (Cidade de entrega: ${selectedCity})!`;
+        if (customerNote && customerNote.trim() !== "") {
+          msg += `\n📝 *Cliente / Obs:* ${customerNote.trim()}`;
+        }
       }
 
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, "_blank");
     }
 
-    // Inicialização com restauração do cache
+    // Inicialização
     loadCache();
     renderAll();
     goToScreen(0);
