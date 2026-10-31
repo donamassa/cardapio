@@ -411,18 +411,86 @@
     .pizza-cards-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 10px;
     }
 
     .pizza-card {
       background-color: var(--parchment-card);
       border: 1.5px solid var(--border-vintage);
       border-radius: 14px;
-      padding: 16px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 0;
       box-shadow: 0 4px 12px rgba(40, 22, 10, 0.07);
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .pizza-card.is-expanded {
+      gap: 12px;
+      box-shadow: 0 6px 16px rgba(40, 22, 10, 0.12);
+      border-color: var(--burgundy);
+    }
+
+    .pizza-card.is-collapsed .pizza-sizes-rows {
+      display: none;
+    }
+
+    .pizza-card.is-collapsed .pizza-ingredients {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .pizza-card-toggle {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font: inherit;
+      color: inherit;
+    }
+
+    .pizza-card-chevron {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-vintage);
+      background: #FFF9EE;
+      color: var(--burgundy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      transition: transform 0.18s ease, background 0.15s ease;
+    }
+
+    .pizza-card.is-expanded .pizza-card-chevron {
+      transform: rotate(90deg);
+      background: var(--burgundy);
+      color: #fff;
+      border-color: var(--burgundy);
+    }
+
+    .pizza-card-selected-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: #fff;
+      background: var(--burgundy);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
     }
 
     /* Destaque Especial da Casa no Topo das Salgadas */
@@ -442,29 +510,42 @@
       background: linear-gradient(90deg, var(--burgundy) 0%, var(--burgundy-light) 100%);
       color: #FFF9EE;
       font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.8px;
-      padding: 5px 12px;
+      padding: 4px 10px;
       border-radius: 50px;
       border: 1px solid var(--gold);
+      margin-bottom: 8px;
     }
 
     .pizza-card-head {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
     }
 
     .pizza-thumb {
-      width: 92px;
-      height: 66px;
+      width: 72px;
+      height: 54px;
       object-fit: contain;
       flex-shrink: 0;
       filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.22));
     }
 
+    .pizza-card.is-expanded .pizza-thumb {
+      width: 92px;
+      height: 66px;
+    }
+
     .pizza-card.featured-especial .pizza-thumb {
+      width: 84px;
+      height: 68px;
+    }
+
+    .pizza-card.featured-especial.is-expanded .pizza-thumb {
       width: 112px;
       height: 92px;
     }
@@ -476,22 +557,36 @@
 
     .pizza-name {
       font-family: 'Cinzel', serif;
-      font-size: 1.22rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--burgundy);
       line-height: 1.2;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
+    }
+
+    .pizza-card.is-expanded .pizza-name {
+      font-size: 1.18rem;
     }
 
     .pizza-card.featured-especial .pizza-name {
-      font-size: 1.35rem;
+      font-size: 1.12rem;
+    }
+
+    .pizza-card.featured-especial.is-expanded .pizza-name {
+      font-size: 1.28rem;
     }
 
     .pizza-ingredients {
-      font-size: 0.98rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
       font-weight: 500;
+    }
+
+    .pizza-card.is-expanded .pizza-ingredients {
+      font-size: 0.95rem;
+      -webkit-line-clamp: unset;
+      display: block;
     }
 
     /* 3 Linhas Horizontais para Seleção de Tamanho (Grande, Broto, Mini) */
@@ -708,12 +803,18 @@
     }
 
     .summary-item.compact {
-      padding: 6px 2px;
+      padding: 8px 2px;
       gap: 8px;
+      align-items: center;
+    }
+
+    .summary-item-info {
+      flex: 1;
+      min-width: 0;
     }
 
     .summary-item-info strong {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-main);
       display: block;
       line-height: 1.25;
@@ -721,18 +822,38 @@
     }
 
     .summary-item-info span {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       font-weight: 600;
     }
 
     .summary-item-price {
       font-family: 'EB Garamond', serif;
-      font-size: 1.08rem;
+      font-size: 1rem;
       font-weight: 800;
       color: var(--burgundy);
       white-space: nowrap;
       flex-shrink: 0;
+      min-width: 4.5rem;
+      text-align: right;
+    }
+
+    .qty-controls.modal-qty {
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .qty-controls.modal-qty .qty-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 1.05rem;
+      border-width: 1.5px;
+      box-shadow: none;
+    }
+
+    .qty-controls.modal-qty .qty-val {
+      font-size: 0.95rem;
+      min-width: 16px;
     }
 
     .form-group {
@@ -1356,7 +1477,7 @@
           <button type="button" class="close-sheet-btn" onclick="closeCheckoutModal()">×</button>
         </div>
 
-        <div id="modal-cart-list" style="max-height: 260px; overflow-y: auto; background: var(--parchment-card); border: 1.5px solid var(--border-vintage); border-radius: 10px; padding: 8px 10px;"></div>
+        <div id="modal-cart-list" style="max-height: 280px; overflow-y: auto; background: var(--parchment-card); border: 1.5px solid var(--border-vintage); border-radius: 10px; padding: 6px 10px;"></div>
 
         <div style="display:flex; justify-content:flex-end; align-items:center; font-weight:800; font-size:1.15rem; padding: 4px 2px;">
           <span id="modal-total-val" style="color:var(--burgundy); font-size:1.3rem;">R$ 0,00</span>
@@ -1732,6 +1853,7 @@
 
     let currentScreen = 0;
     let cart = {};
+    let expandedPizzaId = null;
     let selectedCity = "";
     let customerNote = "";
 
@@ -1793,19 +1915,37 @@
         delete cart[key];
       } else {
         cart[key] = next;
+        expandedPizzaId = itemId;
       }
       saveCache();
       renderAll();
+
+      const { totalItems } = getCartSummaryData();
+      if (totalItems === 0) {
+        closeCheckoutModal();
+      }
     }
 
     function clearCart() {
       cart = {};
       saveCache();
       renderAll();
+      closeCheckoutModal();
     }
 
-    // Renderiza cada Card de Pizza com os 3 Tamanhos em 3 Linhas Horizontais Legíveis
+    function togglePizzaExpand(itemId) {
+      expandedPizzaId = expandedPizzaId === itemId ? null : itemId;
+      renderAll();
+    }
+
+    function getItemSelectedQty(itemId) {
+      return SIZE_ORDER.reduce((sum, sz) => sum + getQty(itemId, sz), 0);
+    }
+
+    // Renderiza cada Card de Pizza (acordeão: um aberto por vez)
     function renderPizzaCard(item) {
+      const isOpen = expandedPizzaId === item.id;
+      const selectedQty = getItemSelectedQty(item.id);
       const rowsHtml = SIZE_ORDER.map(sz => {
         const q = getQty(item.id, sz);
         return `
@@ -1817,9 +1957,9 @@
             <div class="size-row-right">
               <span class="size-row-price">${formatBRL(item.prices[sz])}</span>
               <div class="qty-controls">
-                <button type="button" class="qty-btn" onclick="updateQty('${item.id}', '${sz}', -1)" aria-label="Diminuir">-</button>
+                <button type="button" class="qty-btn" onclick="event.stopPropagation(); updateQty('${item.id}', '${sz}', -1)" aria-label="Diminuir">-</button>
                 <span class="qty-val">${q}</span>
-                <button type="button" class="qty-btn plus" onclick="updateQty('${item.id}', '${sz}', 1)" aria-label="Adicionar">+</button>
+                <button type="button" class="qty-btn plus" onclick="event.stopPropagation(); updateQty('${item.id}', '${sz}', 1)" aria-label="Adicionar">+</button>
               </div>
             </div>
           </div>
@@ -1827,15 +1967,19 @@
       }).join("");
 
       return `
-        <article class="pizza-card ${item.isEspecial ? 'featured-especial' : ''}">
+        <article class="pizza-card ${item.isEspecial ? 'featured-especial' : ''} ${isOpen ? 'is-expanded' : 'is-collapsed'}">
           ${item.isEspecial ? `<div class="especial-crown-Ribbon">👑 ESPECIAL DA CASA</div>` : ''}
-          <div class="pizza-card-head">
-            <img src="${item.img}" alt="${item.name}" class="pizza-thumb">
-            <div class="pizza-meta">
-              <h2 class="pizza-name">${item.name}</h2>
-              <p class="pizza-ingredients">${item.desc}</p>
+          <button type="button" class="pizza-card-toggle" onclick="togglePizzaExpand('${item.id}')" aria-expanded="${isOpen ? 'true' : 'false'}">
+            <div class="pizza-card-head">
+              <img src="${item.img}" alt="" class="pizza-thumb">
+              <div class="pizza-meta">
+                <h2 class="pizza-name">${item.name}</h2>
+                <p class="pizza-ingredients">${item.desc}</p>
+              </div>
             </div>
-          </div>
+            ${selectedQty > 0 ? `<span class="pizza-card-selected-badge">${selectedQty}</span>` : ''}
+            <span class="pizza-card-chevron" aria-hidden="true">›</span>
+          </button>
           <div class="pizza-sizes-rows">
             ${rowsHtml}
           </div>
@@ -1893,8 +2037,13 @@
         modalList.innerHTML = lines.map(l => `
           <div class="summary-item compact">
             <div class="summary-item-info">
-              <strong>${l.qty}× ${l.name}</strong>
+              <strong>${l.name}</strong>
               <span>${l.sizeLabel}</span>
+            </div>
+            <div class="qty-controls modal-qty">
+              <button type="button" class="qty-btn" onclick="updateQty('${l.itemId}', '${l.sizeKey}', -1)" aria-label="Diminuir">-</button>
+              <span class="qty-val">${l.qty}</span>
+              <button type="button" class="qty-btn plus" onclick="updateQty('${l.itemId}', '${l.sizeKey}', 1)" aria-label="Adicionar">+</button>
             </div>
             <span class="summary-item-price">${formatBRL(l.sub)}</span>
           </div>
